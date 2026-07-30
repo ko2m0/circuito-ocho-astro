@@ -80,7 +80,7 @@ body {
 /* Mobile Menu */
 #mobile-menu {
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -407,4 +407,14 @@ a[href*="wa.me"] {
 }
 .scroll-indicator {
     animation: scrollBounce 2s infinite ease-in-out;
+}
+
+/* Mobile menu open state */
+#mobile-menu.opacity-100 {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+#mobile-menu.opacity-0 {
+    opacity: 0 !important;
+    pointer-events: none !important;
 }

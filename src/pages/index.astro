@@ -444,7 +444,7 @@ import Footer from '../components/Footer.astro';
         </button>
     </div>
 
-    <script is:inline>
+ <script is:inline>
         (function() {
             // Mobile Menu with body scroll lock
             var mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -452,19 +452,26 @@ import Footer from '../components/Footer.astro';
             var body = document.body;
 
             if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    var isOpen = mobileMenu.classList.toggle('open');
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var isOpen = mobileMenu.classList.contains('opacity-100');
                     if (isOpen) {
-                        body.style.overflow = 'hidden';
-                    } else {
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
                         body.style.overflow = '';
+                    } else {
+                        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                        body.style.overflow = 'hidden';
                     }
                 });
 
-                var menuLinks = mobileMenu.querySelectorAll('a');
+                var menuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
                 for (var i = 0; i < menuLinks.length; i++) {
                     menuLinks[i].addEventListener('click', function() {
-                        mobileMenu.classList.remove('open');
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
                         body.style.overflow = '';
                     });
                 }
@@ -558,7 +565,6 @@ import Footer from '../components/Footer.astro';
                 var particles = [];
                 var particleCount = 80;
                 var connectionDistance = 150;
-                var mouse = { x: null, y: null };
 
                 function resize() {
                     width = canvas.width = window.innerWidth;
@@ -566,11 +572,6 @@ import Footer from '../components/Footer.astro';
                 }
                 resize();
                 window.addEventListener('resize', resize);
-
-                window.addEventListener('mousemove', function(e) {
-                    mouse.x = e.clientX;
-                    mouse.y = e.clientY;
-                });
 
                 function Particle() {
                     this.x = Math.random() * width;
