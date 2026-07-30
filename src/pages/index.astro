@@ -7,80 +7,103 @@ import Footer from '../components/Footer.astro';
 <Layout>
     <Header />
 
+    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <canvas id="bg-canvas" class="absolute inset-0 w-full h-full"></canvas>
-
-        <div class="absolute top-24 left-6 md:left-12 flex items-center space-x-2 text-c8-green font-mono text-xs">
-            <div class="w-2 h-2 bg-c8-green rounded-full animate-pulse"></div>
-            <span>Estado del Sistema: En Línea</span>
-        </div>
+        <canvas id="bg-canvas" class="fixed"></canvas>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text">
-                    Activa la <span class="text-c8-green">evolución</span> de tu marca
+                <div class="hero-animate hero-animate-delay-1 mb-8">
+                    <div class="status-badge">
+                        <div class="status-dot"></div>
+                        <span>Estado del Sistema: En Línea</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-animate hero-animate-delay-1 text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                    Activa la <span class="text-c8-green glow-text">evolución</span><br>de tu marca
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-10 font-light">
+
+                <p class="hero-animate hero-animate-delay-2 text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
                     Operamos tu presencia digital como un sistema vivo que aprende y se ajusta mes con mes.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+                <div class="hero-animate hero-animate-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#contacto" class="btn-neon bg-c8-green text-c8-dark px-8 py-4 rounded font-mono font-bold hover:bg-white transition-colors text-lg">
-                        Iniciar Auditoría
+                        INICIAR AUDITORÍA
                     </a>
-                    <a href="#sistema" class="border-2 border-c8-green text-c8-green px-8 py-4 rounded font-mono font-bold hover:bg-c8-green hover:text-c8-dark transition-colors text-lg">
-                        Explorar Lógica
+                    <a href="#sistema" class="border border-c8-green/50 text-c8-green px-8 py-4 rounded font-mono font-bold hover:bg-c8-green/10 hover:border-c8-green transition-colors text-lg">
+                        EXPLORAR LÓGICA
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <svg class="w-6 h-6 text-c8-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema" class="py-24 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal-element">
+                        <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
+                            El Caos de los <span class="text-red-500">Datos Desconectados</span>
+                        </h2>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Tu marketing reacciona en lugar de crear. Compites por precio (C2), buscas validación con 'likes' (C4) y tu contenido es técnicamente correcto pero no se siente en el cuerpo del cliente (C5 inactivo).
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 text-xl"></span>
+                                <span class="text-gray-300">Actos aleatorios de marketing sin estrategia.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 text-xl">✕</span>
+                                <span class="text-gray-300">Incapacidad para rastrear ROI entre canales.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 text-xl">✕</span>
+                                <span class="text-gray-300">Presupuesto desperdiciado en campañas no optimizadas.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal-element">
+                        <div class="bg-black/60 border border-c8-green/30 rounded-lg p-6 font-mono text-sm backdrop-blur-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-red-500">ERROR: ESTRATEGIA_NO_ENCONTRADA</div>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                            </div>
+                            <div class="text-gray-400 space-y-2">
+                                <div>&gt; Escaneando canales de marketing...</div>
+                                <div>&gt; Facebook Ads: <span class="text-red-500">Desconectado</span></div>
+                                <div>&gt; Email CRM: <span class="text-red-500">Sin Integración</span></div>
+                                <div>&gt; Analíticas: <span class="text-red-500">Datos Aislados</span></div>
+                                <div class="text-yellow-500">&gt; Fallo del Sistema Inminente...</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="problema" class="py-20 relative">
+    <!-- System Section -->
+    <section id="sistema" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        El Caos de los <span class="text-c8-green">Datos Desconectados</span>
-                    </h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Tu marketing reacciona en lugar de crear. Compites por precio (C2), buscas validación con 'likes' (C4) y tu contenido es técnicamente correcto pero no se siente en el cuerpo del cliente (C5 inactivo).
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
-                        <div class="text-c8-green text-4xl mb-4">⚠</div>
-                        <h3 class="text-xl font-bold mb-3">Actos aleatorios de marketing sin estrategia.</h3>
-                    </div>
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
-                        <div class="text-c8-green text-4xl mb-4">⚠</div>
-                        <h3 class="text-xl font-bold mb-3">Incapacidad para rastrear ROI entre canales.</h3>
-                    </div>
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
-                        <div class="text-c8-green text-4xl mb-4">⚠</div>
-                        <h3 class="text-xl font-bold mb-3">Presupuesto desperdiciado en campañas no optimizadas.</h3>
-                    </div>
-                </div>
-
-                <div class="reveal-element bg-black border border-c8-green/30 rounded-lg p-6 font-mono text-sm">
-                    <div class="text-red-500 mb-4">ERROR: ESTRATEGIA_NO_ENCONTRADA</div>
-                    <div class="text-gray-400 space-y-2">
-                        <div>&gt; Escaneando canales de marketing...</div>
-                        <div>&gt; Facebook Ads: <span class="text-red-500">Desconectado</span></div>
-                        <div>&gt; Email CRM: <span class="text-red-500">Sin Integración</span></div>
-                        <div>&gt; Analíticas: <span class="text-red-500">Datos Aislados</span></div>
-                        <div class="text-yellow-500">&gt; Fallo del Sistema Inminente...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sistema" class="py-20 bg-c8-gray/30 relative">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         El Protocolo de <span class="text-c8-green">Activación Neural</span>
                     </h2>
                     <p class="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -89,19 +112,25 @@ import Footer from '../components/Footer.astro';
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="reveal-element">
-                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">01.</div>
-                        <h3 class="text-2xl font-bold mb-4">Diagnóstico de Circuito</h3>
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-mono">01. Diagnóstico de Circuito</h3>
                         <p class="text-gray-300">Analizamos en qué circuito opera hoy tu marca: ¿Supervivencia? ¿Territorio? ¿Juegos sociales? ¿O hay visos de conciencia superior?</p>
                     </div>
-                    <div class="reveal-element">
-                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">02.</div>
-                        <h3 class="text-2xl font-bold mb-4">Diseño de la Activación</h3>
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-mono">02. Diseño de la Activación</h3>
                         <p class="text-gray-300">Nuestra inteligencia central analiza los datos para identificar patrones de alto valor y eliminar desperdicios.</p>
                     </div>
-                    <div class="reveal-element">
-                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">03.</div>
-                        <h3 class="text-2xl font-bold mb-4">Ejecución y Optimización Continua</h3>
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-mono">03. Ejecución y Optimización Continua</h3>
                         <p class="text-gray-300">Implementamos campañas (Google Ads, Meta) que hablan al circuito correcto, optimizadas en todos los canales, creando un ciclo de auto-mejora.</p>
                     </div>
                 </div>
@@ -109,17 +138,18 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
-    <section id="servicios" class="py-20 relative">
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         Niveles de <span class="text-c8-green">Activación Recurrente</span>
                     </h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-arquitectura">
                             <svg viewBox="0 0 100 100">
                                 <rect class="main-shape" x="20" y="30" width="60" height="50" rx="2"/>
@@ -133,7 +163,7 @@ import Footer from '../components/Footer.astro';
                         <p class="text-gray-300 text-center">Diseño de planos para todo tu ecosistema digital.</p>
                     </div>
 
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-red-neural">
                             <svg viewBox="0 0 100 100">
                                 <circle class="node" cx="50" cy="30" r="6"/>
@@ -150,7 +180,7 @@ import Footer from '../components/Footer.astro';
                         <p class="text-gray-300 text-center">Creación de contenido basada en datos que se adapta al engagement.</p>
                     </div>
 
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-automatizacion">
                             <svg viewBox="0 0 100 100">
                                 <circle class="gear" cx="50" cy="50" r="25" stroke-dasharray="8 4"/>
@@ -162,7 +192,7 @@ import Footer from '../components/Footer.astro';
                         <p class="text-gray-300 text-center">Compra algorítmica de anuncios para maximizar ROAS.</p>
                     </div>
 
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-seo">
                             <svg viewBox="0 0 100 100">
                                 <path class="layer" d="M 20 60 L 50 45 L 80 60 L 50 75 Z"/>
@@ -174,7 +204,7 @@ import Footer from '../components/Footer.astro';
                         <p class="text-gray-300 text-center">SEO técnico para asegurar la visibilidad del sistema.</p>
                     </div>
 
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-conversion">
                             <svg viewBox="0 0 100 100">
                                 <circle class="target" cx="50" cy="50" r="20"/>
@@ -187,7 +217,7 @@ import Footer from '../components/Footer.astro';
                         <p class="text-gray-300 text-center">Pruebas A/B para maximizar el output del tráfico existente.</p>
                     </div>
 
-                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                    <div class="reveal-element glow-box bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
                         <div class="icon-wrapper icon-analytics">
                             <svg viewBox="0 0 100 100">
                                 <rect class="bar" x="20" y="60" width="10" height="20"/>
@@ -206,19 +236,20 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
-    <section id="testimonios" class="py-20 bg-c8-gray/30 relative">
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         Voces del <span class="text-c8-green">Sistema</span>
                     </h2>
                     <p class="text-xl text-gray-300">Lo que dicen los líderes que han transformado sus operaciones de marketing.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
-                        <div class="text-c8-green text-4xl mb-4">"</div>
+                    <div class="reveal-element testimonial-card bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4 font-bold">"</div>
                         <p class="text-gray-300 mb-6 italic">Circuito Ocho transformó nuestro marketing de caos a precisión. Nuestro ROI aumentó 340% en 6 meses.</p>
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">DR</div>
@@ -229,8 +260,8 @@ import Footer from '../components/Footer.astro';
                         </div>
                     </div>
 
-                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
-                        <div class="text-c8-green text-4xl mb-4">"</div>
+                    <div class="reveal-element testimonial-card bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4 font-bold">"</div>
                         <p class="text-gray-300 mb-6 italic">Finalmente tenemos un sistema que trabaja mientras dormimos. Las automatizaciones son impresionantes.</p>
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">LV</div>
@@ -241,8 +272,8 @@ import Footer from '../components/Footer.astro';
                         </div>
                     </div>
 
-                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
-                        <div class="text-c8-green text-4xl mb-4">"</div>
+                    <div class="reveal-element testimonial-card bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4 font-bold">"</div>
                         <p class="text-gray-300 mb-6 italic">La claridad de sus reportes y la precisión de sus campañas es lo que necesitábamos para escalar.</p>
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">CF</div>
@@ -262,63 +293,85 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
-    <section id="proceso" class="py-20 relative">
+    <!-- Process Section (Zigzag) -->
+    <section id="proceso" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         Flujo de <span class="text-c8-green">Ejecución</span>
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div class="reveal-element text-center">
-                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
-                            <span class="text-c8-green font-mono text-2xl font-bold">01</span>
+                <div class="space-y-12">
+                    <div class="reveal-element process-step flex flex-col md:flex-row items-center gap-6">
+                        <div class="md:w-1/2 md:text-right">
+                            <div class="bg-c8-dark/60 border border-c8-green/20 rounded-lg p-6 glow-box">
+                                <h3 class="text-xl font-bold mb-2 font-mono">Escaneo Diagnóstico</h3>
+                                <p class="text-gray-300">Auditoría profunda de activos actuales, fugas y oportunidades.</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Escaneo Diagnóstico</h3>
-                        <p class="text-gray-300">Auditoría profunda de activos actuales, fugas y oportunidades.</p>
+                        <div class="md:w-12 h-12 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center neon-pulse flex-shrink-0">
+                            <span class="text-c8-green font-mono text-xl font-bold">01</span>
+                        </div>
+                        <div class="md:w-1/2"></div>
                     </div>
 
-                    <div class="reveal-element text-center">
-                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
-                            <span class="text-c8-green font-mono text-2xl font-bold">02</span>
+                    <div class="reveal-element process-step flex flex-col md:flex-row items-center gap-6">
+                        <div class="md:w-1/2"></div>
+                        <div class="md:w-12 h-12 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center neon-pulse flex-shrink-0">
+                            <span class="text-c8-green font-mono text-xl font-bold">02</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Diseño del Circuito</h3>
-                        <p class="text-gray-300">Mapeo del customer journey y selección del stack tecnológico.</p>
+                        <div class="md:w-1/2">
+                            <div class="bg-c8-dark/60 border border-c8-green/20 rounded-lg p-6 glow-box">
+                                <h3 class="text-xl font-bold mb-2 font-mono">Diseño del Circuito</h3>
+                                <p class="text-gray-300">Mapeo del customer journey y selección del stack tecnológico.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="reveal-element text-center">
-                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
-                            <span class="text-c8-green font-mono text-2xl font-bold">03</span>
+                    <div class="reveal-element process-step flex flex-col md:flex-row items-center gap-6">
+                        <div class="md:w-1/2 md:text-right">
+                            <div class="bg-c8-dark/60 border border-c8-green/20 rounded-lg p-6 glow-box">
+                                <h3 class="text-xl font-bold mb-2 font-mono">Despliegue</h3>
+                                <p class="text-gray-300">Lanzamiento de campañas y secuencias de automatización.</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Despliegue</h3>
-                        <p class="text-gray-300">Lanzamiento de campañas y secuencias de automatización.</p>
+                        <div class="md:w-12 h-12 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center neon-pulse flex-shrink-0">
+                            <span class="text-c8-green font-mono text-xl font-bold">03</span>
+                        </div>
+                        <div class="md:w-1/2"></div>
                     </div>
 
-                    <div class="reveal-element text-center">
-                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
-                            <span class="text-c8-green font-mono text-2xl font-bold">04</span>
+                    <div class="reveal-element process-step flex flex-col md:flex-row items-center gap-6">
+                        <div class="md:w-1/2"></div>
+                        <div class="md:w-12 h-12 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center neon-pulse flex-shrink-0">
+                            <span class="text-c8-green font-mono text-xl font-bold">04</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Ciclo de Optimización</h3>
-                        <p class="text-gray-300">Revisiones mensuales y ajustes algorítmicos.</p>
+                        <div class="md:w-1/2">
+                            <div class="bg-c8-dark/60 border border-c8-green/20 rounded-lg p-6 glow-box">
+                                <h3 class="text-xl font-bold mb-2 font-mono">Ciclo de Optimización</h3>
+                                <p class="text-gray-300">Revisiones mensuales y ajustes algorítmicos.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="precios" class="py-20 bg-c8-gray/30 relative">
+    <!-- Pricing Section -->
+    <section id="precios" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         Nodos de <span class="text-c8-green">Inversión</span>
                     </h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="reveal-element bg-c8-dark border border-c8-green/20 rounded-lg p-8">
+                    <div class="reveal-element bg-c8-dark/60 border border-c8-green/20 rounded-lg p-8 glow-box">
                         <h3 class="text-2xl font-bold mb-2">KickOff &amp; Setup Fee</h3>
                         <div class="text-4xl font-bold text-c8-green mb-4">$888<span class="text-lg">mxn</span> <span class="text-sm text-gray-400">(+IVA)</span></div>
                         <p class="text-gray-300 mb-6">Pago único para configuración inicial de infraestructura, píxeles, investigación y activos de marca.</p>
@@ -328,16 +381,20 @@ import Footer from '../components/Footer.astro';
                             <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Curaduría de assets visuales y alineación del tono de comunicación de la marca.</span></li>
                             <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Verificación de dominios, tracking de eventos y preparación de tableros de medición.</span></li>
                         </ul>
-                        <a href="#contacto" class="block w-full text-center bg-c8-green text-c8-dark px-6 py-3 rounded font-mono font-bold hover:bg-white transition-colors">Seleccionar</a>
+                        <a href="#contacto" class="block w-full text-center border border-c8-green text-c8-green px-6 py-3 rounded font-mono font-bold hover:bg-c8-green hover:text-c8-dark transition-colors">Seleccionar</a>
                     </div>
 
-                    <div class="reveal-element bg-c8-dark border-2 border-c8-green rounded-lg p-8 relative">
-                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-c8-green text-c8-dark px-4 py-1 rounded-full text-sm font-bold">
+                    <div class="reveal-element pricing-featured bg-c8-dark/80 border-2 border-c8-green rounded-lg p-8 relative glow-box">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-c8-green text-c8-dark px-4 py-1 rounded-full text-sm font-bold font-mono">
                             Por tiempo limitado
                         </div>
                         <h3 class="text-2xl font-bold mb-2">Gestión Mensual</h3>
-                        <div class="text-4xl font-bold text-c8-green mb-1">$3,000<span class="text-lg">/mes</span> <span class="text-sm text-gray-400">(+IVA)*</span></div>
-                        <div class="text-sm text-gray-400 line-through mb-4">$4,500</div>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-xl text-gray-500 line-through">$4,500</span>
+                            <span class="text-4xl font-bold text-c8-green">$3,000</span>
+                            <span class="text-lg text-gray-300">/mes</span>
+                            <span class="text-sm text-gray-400">(+IVA)*</span>
+                        </div>
                         <p class="text-gray-300 mb-6">Para marcas en crecimiento listas para escalar.</p>
                         <ul class="space-y-3 mb-8">
                             <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Diagnóstico vivo: Identificación de bloqueos, oportunidades y fugas de atención.</span></li>
@@ -355,11 +412,12 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
-    <section id="contacto" class="py-20 relative">
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="reveal-element">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="section-title-pixel text-4xl md:text-5xl font-bold mb-6">
                         Diagnóstico de <span class="text-c8-green">Circuito</span>
                     </h2>
                     <p class="text-xl text-gray-300 mb-10">Una conversación de 30 minutos. Sin costo. Sin guiones. Te diremos en qué circuito está tu marca y qué nivel puede activar su siguiente evolución.</p>
@@ -371,7 +429,8 @@ import Footer from '../components/Footer.astro';
 
     <Footer />
 
-    <div class="fixed bottom-6 right-6 fab-container">
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 fab-container z-40">
         <a href="https://wa.me/5215512345678" target="_blank" rel="noopener" class="block w-14 h-14 bg-green-500 rounded-full items-center justify-center shadow-lg hover:bg-green-600 transition-all mb-4 flex">
             <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -387,22 +446,31 @@ import Footer from '../components/Footer.astro';
 
     <script is:inline>
         (function() {
+            // Mobile Menu with body scroll lock
             var mobileMenuBtn = document.getElementById('mobile-menu-btn');
             var mobileMenu = document.getElementById('mobile-menu');
+            var body = document.body;
 
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
+                    var isOpen = mobileMenu.classList.toggle('open');
+                    if (isOpen) {
+                        body.style.overflow = 'hidden';
+                    } else {
+                        body.style.overflow = '';
+                    }
                 });
 
                 var menuLinks = mobileMenu.querySelectorAll('a');
                 for (var i = 0; i < menuLinks.length; i++) {
                     menuLinks[i].addEventListener('click', function() {
                         mobileMenu.classList.remove('open');
+                        body.style.overflow = '';
                     });
                 }
             }
 
+            // Scroll to Top Button
             var scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) {
                 window.addEventListener('scroll', function() {
@@ -418,12 +486,13 @@ import Footer from '../components/Footer.astro';
                 });
             }
 
+            // Reveal on Scroll
             var revealElements = document.querySelectorAll('.reveal-element');
             var revealOnScroll = function() {
                 for (var i = 0; i < revealElements.length; i++) {
                     var element = revealElements[i];
                     var elementTop = element.getBoundingClientRect().top;
-                    if (elementTop < window.innerHeight - 150) {
+                    if (elementTop < window.innerHeight - 100) {
                         element.classList.add('visible');
                     }
                 }
@@ -431,6 +500,7 @@ import Footer from '../components/Footer.astro';
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
 
+            // Privacy Modal
             var privacyModal = document.getElementById('privacy-modal');
             var closePrivacy = document.getElementById('close-privacy');
             var privacyLink = document.querySelector('a[href="#privacy"]');
@@ -439,17 +509,23 @@ import Footer from '../components/Footer.astro';
                 privacyLink.addEventListener('click', function(e) {
                     e.preventDefault();
                     privacyModal.classList.remove('hidden');
+                    body.style.overflow = 'hidden';
                 });
             }
             if (closePrivacy && privacyModal) {
                 closePrivacy.addEventListener('click', function() {
                     privacyModal.classList.add('hidden');
+                    body.style.overflow = '';
                 });
                 privacyModal.addEventListener('click', function(e) {
-                    if (e.target === privacyModal) privacyModal.classList.add('hidden');
+                    if (e.target === privacyModal) {
+                        privacyModal.classList.add('hidden');
+                        body.style.overflow = '';
+                    }
                 });
             }
 
+            // Terms Modal
             var termsModal = document.getElementById('terms-modal');
             var closeTerms = document.getElementById('close-terms');
             var termsLink = document.querySelector('a[href="#terms"]');
@@ -458,50 +534,63 @@ import Footer from '../components/Footer.astro';
                 termsLink.addEventListener('click', function(e) {
                     e.preventDefault();
                     termsModal.classList.remove('hidden');
+                    body.style.overflow = 'hidden';
                 });
             }
             if (closeTerms && termsModal) {
                 closeTerms.addEventListener('click', function() {
                     termsModal.classList.add('hidden');
+                    body.style.overflow = '';
                 });
                 termsModal.addEventListener('click', function(e) {
-                    if (e.target === termsModal) termsModal.classList.add('hidden');
+                    if (e.target === termsModal) {
+                        termsModal.classList.add('hidden');
+                        body.style.overflow = '';
+                    }
                 });
             }
 
+            // Neural Particle Background
             var canvas = document.getElementById('bg-canvas');
             if (canvas) {
                 var ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                var width, height;
+                var particles = [];
+                var particleCount = 80;
+                var connectionDistance = 150;
+                var mouse = { x: null, y: null };
 
-                window.addEventListener('resize', function() {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
+                function resize() {
+                    width = canvas.width = window.innerWidth;
+                    height = canvas.height = window.innerHeight;
+                }
+                resize();
+                window.addEventListener('resize', resize);
+
+                window.addEventListener('mousemove', function(e) {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
                 });
 
-                var particles = [];
-                var particleCount = 100;
-
                 function Particle() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.vx = (Math.random() - 0.5) * 0.5;
-                    this.vy = (Math.random() - 0.5) * 0.5;
-                    this.radius = Math.random() * 2 + 1;
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.3;
+                    this.vy = (Math.random() - 0.5) * 0.3;
+                    this.radius = Math.random() * 1.5 + 0.5;
                 }
 
                 Particle.prototype.update = function() {
                     this.x += this.vx;
                     this.y += this.vy;
-                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
                 };
 
                 Particle.prototype.draw = function() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(53, 252, 3, 0.5)';
+                    ctx.fillStyle = 'rgba(53, 252, 3, 0.8)';
                     ctx.fill();
                 };
 
@@ -515,13 +604,13 @@ import Footer from '../components/Footer.astro';
                             var dx = particles[i].x - particles[j].x;
                             var dy = particles[i].y - particles[j].y;
                             var distance = Math.sqrt(dx * dx + dy * dy);
-                            if (distance < 150) {
-                                var opacity = 0.2 * (1 - distance / 150);
+                            if (distance < connectionDistance) {
+                                var opacity = 0.25 * (1 - distance / connectionDistance);
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
                                 ctx.lineTo(particles[j].x, particles[j].y);
                                 ctx.strokeStyle = 'rgba(53, 252, 3, ' + opacity + ')';
-                                ctx.lineWidth = 0.5;
+                                ctx.lineWidth = 0.6;
                                 ctx.stroke();
                             }
                         }
@@ -529,7 +618,7 @@ import Footer from '../components/Footer.astro';
                 }
 
                 function animate() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.clearRect(0, 0, width, height);
                     for (var i = 0; i < particles.length; i++) {
                         particles[i].update();
                         particles[i].draw();
