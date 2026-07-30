@@ -1,17 +1,545 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+    <Header />
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <canvas id="bg-canvas" class="absolute inset-0 w-full h-full"></canvas>
+
+        <div class="absolute top-24 left-6 md:left-12 flex items-center space-x-2 text-c8-green font-mono text-xs">
+            <div class="w-2 h-2 bg-c8-green rounded-full animate-pulse"></div>
+            <span>Estado del Sistema: En Línea</span>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text">
+                    Activa la <span class="text-c8-green">evolución</span> de tu marca
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 font-light">
+                    Operamos tu presencia digital como un sistema vivo que aprende y se ajusta mes con mes.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contacto" class="btn-neon bg-c8-green text-c8-dark px-8 py-4 rounded font-mono font-bold hover:bg-white transition-colors text-lg">
+                        Iniciar Auditoría
+                    </a>
+                    <a href="#sistema" class="border-2 border-c8-green text-c8-green px-8 py-4 rounded font-mono font-bold hover:bg-c8-green hover:text-c8-dark transition-colors text-lg">
+                        Explorar Lógica
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problema" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        El Caos de los <span class="text-c8-green">Datos Desconectados</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Tu marketing reacciona en lugar de crear. Compites por precio (C2), buscas validación con 'likes' (C4) y tu contenido es técnicamente correcto pero no se siente en el cuerpo del cliente (C5 inactivo).
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
+                        <div class="text-c8-green text-4xl mb-4">⚠</div>
+                        <h3 class="text-xl font-bold mb-3">Actos aleatorios de marketing sin estrategia.</h3>
+                    </div>
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
+                        <div class="text-c8-green text-4xl mb-4">⚠</div>
+                        <h3 class="text-xl font-bold mb-3">Incapacidad para rastrear ROI entre canales.</h3>
+                    </div>
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box">
+                        <div class="text-c8-green text-4xl mb-4">⚠</div>
+                        <h3 class="text-xl font-bold mb-3">Presupuesto desperdiciado en campañas no optimizadas.</h3>
+                    </div>
+                </div>
+
+                <div class="reveal-element bg-black border border-c8-green/30 rounded-lg p-6 font-mono text-sm">
+                    <div class="text-red-500 mb-4">ERROR: ESTRATEGIA_NO_ENCONTRADA</div>
+                    <div class="text-gray-400 space-y-2">
+                        <div>&gt; Escaneando canales de marketing...</div>
+                        <div>&gt; Facebook Ads: <span class="text-red-500">Desconectado</span></div>
+                        <div>&gt; Email CRM: <span class="text-red-500">Sin Integración</span></div>
+                        <div>&gt; Analíticas: <span class="text-red-500">Datos Aislados</span></div>
+                        <div class="text-yellow-500">&gt; Fallo del Sistema Inminente...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sistema" class="py-20 bg-c8-gray/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        El Protocolo de <span class="text-c8-green">Activación Neural</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Circuito Ocho nace de la convergencia entre la tecnología y la psicología profunda. Utilizamos el <a href="https://en.wikipedia.org/wiki/Eight-circuit_model_of_consciousness" class="text-c8-green hover:underline" target="_blank" rel="noopener">Modelo de los 8 Circuitos de la Conciencia</a> para diagnosticar y activar el potencial latente de tu marca.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="reveal-element">
+                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">01.</div>
+                        <h3 class="text-2xl font-bold mb-4">Diagnóstico de Circuito</h3>
+                        <p class="text-gray-300">Analizamos en qué circuito opera hoy tu marca: ¿Supervivencia? ¿Territorio? ¿Juegos sociales? ¿O hay visos de conciencia superior?</p>
+                    </div>
+                    <div class="reveal-element">
+                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">02.</div>
+                        <h3 class="text-2xl font-bold mb-4">Diseño de la Activación</h3>
+                        <p class="text-gray-300">Nuestra inteligencia central analiza los datos para identificar patrones de alto valor y eliminar desperdicios.</p>
+                    </div>
+                    <div class="reveal-element">
+                        <div class="text-c8-green font-mono text-6xl font-bold mb-4">03.</div>
+                        <h3 class="text-2xl font-bold mb-4">Ejecución y Optimización Continua</h3>
+                        <p class="text-gray-300">Implementamos campañas (Google Ads, Meta) que hablan al circuito correcto, optimizadas en todos los canales, creando un ciclo de auto-mejora.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Niveles de <span class="text-c8-green">Activación Recurrente</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-arquitectura">
+                            <svg viewBox="0 0 100 100">
+                                <rect class="main-shape" x="20" y="30" width="60" height="50" rx="2"/>
+                                <line x1="20" y1="45" x2="80" y2="45"/>
+                                <line x1="20" y1="60" x2="80" y2="60"/>
+                                <circle cx="30" cy="37" r="2" fill="#35FC03"/>
+                                <circle cx="40" cy="37" r="2" fill="#35FC03"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Arquitectura Estratégica</h3>
+                        <p class="text-gray-300 text-center">Diseño de planos para todo tu ecosistema digital.</p>
+                    </div>
+
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-red-neural">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="node" cx="50" cy="30" r="6"/>
+                                <circle class="node" cx="30" cy="50" r="6"/>
+                                <circle class="node" cx="70" cy="50" r="6"/>
+                                <circle class="node" cx="50" cy="70" r="6"/>
+                                <line class="connection" x1="50" y1="30" x2="30" y2="50"/>
+                                <line class="connection" x1="50" y1="30" x2="70" y2="50"/>
+                                <line class="connection" x1="30" y1="50" x2="50" y2="70"/>
+                                <line class="connection" x1="70" y1="50" x2="50" y2="70"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Red Neural de Contenido</h3>
+                        <p class="text-gray-300 text-center">Creación de contenido basada en datos que se adapta al engagement.</p>
+                    </div>
+
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-automatizacion">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="gear" cx="50" cy="50" r="25" stroke-dasharray="8 4"/>
+                                <circle class="gear-inner" cx="50" cy="50" r="15" stroke-dasharray="6 3"/>
+                                <circle cx="50" cy="50" r="5" fill="#35FC03"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Automatización de Publicidad</h3>
+                        <p class="text-gray-300 text-center">Compra algorítmica de anuncios para maximizar ROAS.</p>
+                    </div>
+
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-seo">
+                            <svg viewBox="0 0 100 100">
+                                <path class="layer" d="M 20 60 L 50 45 L 80 60 L 50 75 Z"/>
+                                <path class="layer" d="M 20 50 L 50 35 L 80 50 L 50 65 Z"/>
+                                <path class="layer" d="M 20 40 L 50 25 L 80 40 L 50 55 Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Infraestructura SEO</h3>
+                        <p class="text-gray-300 text-center">SEO técnico para asegurar la visibilidad del sistema.</p>
+                    </div>
+
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-conversion">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="target" cx="50" cy="50" r="20"/>
+                                <circle class="target" cx="50" cy="50" r="12"/>
+                                <circle cx="50" cy="50" r="4" fill="#35FC03"/>
+                                <path class="arrow" d="M 50 20 L 50 35 M 45 25 L 50 20 L 55 25"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Optimización de Conversión</h3>
+                        <p class="text-gray-300 text-center">Pruebas A/B para maximizar el output del tráfico existente.</p>
+                    </div>
+
+                    <div class="reveal-element bg-c8-gray/50 border border-c8-green/20 rounded-lg p-8 glow-box hover:border-c8-green transition-colors">
+                        <div class="icon-wrapper icon-analytics">
+                            <svg viewBox="0 0 100 100">
+                                <rect class="bar" x="20" y="60" width="10" height="20"/>
+                                <rect class="bar" x="35" y="50" width="10" height="30"/>
+                                <rect class="bar" x="50" y="40" width="10" height="40"/>
+                                <rect class="bar" x="65" y="30" width="10" height="50"/>
+                                <rect class="bar" x="80" y="20" width="10" height="60"/>
+                                <line class="scan-line" x1="15" y1="50" x2="95" y2="50" stroke-dasharray="4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Panel de Analíticas</h3>
+                        <p class="text-gray-300 text-center">Vista en vivo de la salud y rendimiento de tu sistema.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-20 bg-c8-gray/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Voces del <span class="text-c8-green">Sistema</span>
+                    </h2>
+                    <p class="text-xl text-gray-300">Lo que dicen los líderes que han transformado sus operaciones de marketing.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4">"</div>
+                        <p class="text-gray-300 mb-6 italic">Circuito Ocho transformó nuestro marketing de caos a precisión. Nuestro ROI aumentó 340% en 6 meses.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">DR</div>
+                            <div>
+                                <div class="font-bold">Dr. Roberto Méndez</div>
+                                <div class="text-sm text-gray-400">Director, Clínica Dental Elite</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4">"</div>
+                        <p class="text-gray-300 mb-6 italic">Finalmente tenemos un sistema que trabaja mientras dormimos. Las automatizaciones son impresionantes.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">LV</div>
+                            <div>
+                                <div class="font-bold">Lic. Valentina Torres</div>
+                                <div class="text-sm text-gray-400">Socia, Torres &amp; Asociados</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal-element testimonial-card bg-c8-dark border border-c8-green/20 rounded-lg p-8">
+                        <div class="text-c8-green text-4xl mb-4">"</div>
+                        <p class="text-gray-300 mb-6 italic">La claridad de sus reportes y la precisión de sus campañas es lo que necesitábamos para escalar.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-c8-green rounded-full flex items-center justify-center text-c8-dark font-bold mr-4">CF</div>
+                            <div>
+                                <div class="font-bold">Ing. Carlos Fuentes</div>
+                                <div class="text-sm text-gray-400">CEO, Fuentes Consultoría</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-element quote-highlight mt-16 rounded-lg p-8 text-center">
+                    <p class="text-2xl md:text-3xl font-light italic text-c8-green">"El marketing no es arte, es ingeniería de precisión."</p>
+                    <p class="text-gray-400 mt-4">— Filosofía Circuito Ocho</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Flujo de <span class="text-c8-green">Ejecución</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="reveal-element text-center">
+                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
+                            <span class="text-c8-green font-mono text-2xl font-bold">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Escaneo Diagnóstico</h3>
+                        <p class="text-gray-300">Auditoría profunda de activos actuales, fugas y oportunidades.</p>
+                    </div>
+
+                    <div class="reveal-element text-center">
+                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
+                            <span class="text-c8-green font-mono text-2xl font-bold">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Diseño del Circuito</h3>
+                        <p class="text-gray-300">Mapeo del customer journey y selección del stack tecnológico.</p>
+                    </div>
+
+                    <div class="reveal-element text-center">
+                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
+                            <span class="text-c8-green font-mono text-2xl font-bold">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Despliegue</h3>
+                        <p class="text-gray-300">Lanzamiento de campañas y secuencias de automatización.</p>
+                    </div>
+
+                    <div class="reveal-element text-center">
+                        <div class="w-20 h-20 bg-c8-green/10 border-2 border-c8-green rounded-full flex items-center justify-center mx-auto mb-6 neon-pulse">
+                            <span class="text-c8-green font-mono text-2xl font-bold">04</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Ciclo de Optimización</h3>
+                        <p class="text-gray-300">Revisiones mensuales y ajustes algorítmicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="py-20 bg-c8-gray/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Nodos de <span class="text-c8-green">Inversión</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="reveal-element bg-c8-dark border border-c8-green/20 rounded-lg p-8">
+                        <h3 class="text-2xl font-bold mb-2">KickOff &amp; Setup Fee</h3>
+                        <div class="text-4xl font-bold text-c8-green mb-4">$888<span class="text-lg">mxn</span> <span class="text-sm text-gray-400">(+IVA)</span></div>
+                        <p class="text-gray-300 mb-6">Pago único para configuración inicial de infraestructura, píxeles, investigación y activos de marca.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Diagnóstico profundo de canales actuales y activos publicitarios.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Setup de Píxeles y vinculación de Business Managers (Meta/Google).</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Curaduría de assets visuales y alineación del tono de comunicación de la marca.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Verificación de dominios, tracking de eventos y preparación de tableros de medición.</span></li>
+                        </ul>
+                        <a href="#contacto" class="block w-full text-center bg-c8-green text-c8-dark px-6 py-3 rounded font-mono font-bold hover:bg-white transition-colors">Seleccionar</a>
+                    </div>
+
+                    <div class="reveal-element bg-c8-dark border-2 border-c8-green rounded-lg p-8 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-c8-green text-c8-dark px-4 py-1 rounded-full text-sm font-bold">
+                            Por tiempo limitado
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Gestión Mensual</h3>
+                        <div class="text-4xl font-bold text-c8-green mb-1">$3,000<span class="text-lg">/mes</span> <span class="text-sm text-gray-400">(+IVA)*</span></div>
+                        <div class="text-sm text-gray-400 line-through mb-4">$4,500</div>
+                        <p class="text-gray-300 mb-6">Para marcas en crecimiento listas para escalar.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Diagnóstico vivo: Identificación de bloqueos, oportunidades y fugas de atención.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Estrategia de Contenido: Definición de ejes de comunicación.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Producción y publicación: Creación de piezas visuales y copy.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Lectura de métricas: Consultoría profesional.</span></li>
+                            <li class="flex items-start"><span class="text-c8-green mr-2">✓</span><span class="text-gray-300">Optimización contínua: Microajustes estratégicos mes con mes.</span></li>
+                        </ul>
+                        <p class="text-xs text-gray-400 mb-6">Contrato mínimo: 3 meses</p>
+                        <a href="#contacto" class="block w-full text-center bg-c8-green text-c8-dark px-6 py-3 rounded font-mono font-bold hover:bg-white transition-colors">Seleccionar</a>
+                        <p class="text-xs text-gray-400 mt-4">* La mensualidad cubre la gestión estratégica y operativa. La pauta se paga aparte directamente a las plataformas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="reveal-element">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Diagnóstico de <span class="text-c8-green">Circuito</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-10">Una conversación de 30 minutos. Sin costo. Sin guiones. Te diremos en qué circuito está tu marca y qué nivel puede activar su siguiente evolución.</p>
+                    <img src="/img/C8_logoH_2.svg" alt="Circuito Ocho Logo Horizontal" class="h-16 mx-auto mb-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+
+    <div class="fixed bottom-6 right-6 fab-container">
+        <a href="https://wa.me/5215512345678" target="_blank" rel="noopener" class="block w-14 h-14 bg-green-500 rounded-full items-center justify-center shadow-lg hover:bg-green-600 transition-all mb-4 flex">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            <span class="fab-tooltip">WhatsApp</span>
+        </a>
+        <button id="scroll-to-top" class="w-14 h-14 bg-c8-green rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all opacity-0 pointer-events-none">
+            <svg class="w-6 h-6 text-c8-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script is:inline>
+        (function() {
+            var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            var mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('open');
+                });
+
+                var menuLinks = mobileMenu.querySelectorAll('a');
+                for (var i = 0; i < menuLinks.length; i++) {
+                    menuLinks[i].addEventListener('click', function() {
+                        mobileMenu.classList.remove('open');
+                    });
+                }
+            }
+
+            var scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            var revealElements = document.querySelectorAll('.reveal-element');
+            var revealOnScroll = function() {
+                for (var i = 0; i < revealElements.length; i++) {
+                    var element = revealElements[i];
+                    var elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < window.innerHeight - 150) {
+                        element.classList.add('visible');
+                    }
+                }
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            var privacyModal = document.getElementById('privacy-modal');
+            var closePrivacy = document.getElementById('close-privacy');
+            var privacyLink = document.querySelector('a[href="#privacy"]');
+
+            if (privacyLink && privacyModal) {
+                privacyLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    privacyModal.classList.remove('hidden');
+                });
+            }
+            if (closePrivacy && privacyModal) {
+                closePrivacy.addEventListener('click', function() {
+                    privacyModal.classList.add('hidden');
+                });
+                privacyModal.addEventListener('click', function(e) {
+                    if (e.target === privacyModal) privacyModal.classList.add('hidden');
+                });
+            }
+
+            var termsModal = document.getElementById('terms-modal');
+            var closeTerms = document.getElementById('close-terms');
+            var termsLink = document.querySelector('a[href="#terms"]');
+
+            if (termsLink && termsModal) {
+                termsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    termsModal.classList.remove('hidden');
+                });
+            }
+            if (closeTerms && termsModal) {
+                closeTerms.addEventListener('click', function() {
+                    termsModal.classList.add('hidden');
+                });
+                termsModal.addEventListener('click', function(e) {
+                    if (e.target === termsModal) termsModal.classList.add('hidden');
+                });
+            }
+
+            var canvas = document.getElementById('bg-canvas');
+            if (canvas) {
+                var ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                window.addEventListener('resize', function() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+
+                var particles = [];
+                var particleCount = 100;
+
+                function Particle() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 2 + 1;
+                }
+
+                Particle.prototype.update = function() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                };
+
+                Particle.prototype.draw = function() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(53, 252, 3, 0.5)';
+                    ctx.fill();
+                };
+
+                for (var i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+
+                function connectParticles() {
+                    for (var i = 0; i < particles.length; i++) {
+                        for (var j = i + 1; j < particles.length; j++) {
+                            var dx = particles[i].x - particles[j].x;
+                            var dy = particles[i].y - particles[j].y;
+                            var distance = Math.sqrt(dx * dx + dy * dy);
+                            if (distance < 150) {
+                                var opacity = 0.2 * (1 - distance / 150);
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = 'rgba(53, 252, 3, ' + opacity + ')';
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (var i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
+                    }
+                    connectParticles();
+                    requestAnimationFrame(animate);
+                }
+
+                animate();
+            }
+        })();
+    </script>
+</Layout>
