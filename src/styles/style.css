@@ -81,6 +81,11 @@ body {
     opacity: 1;
 }
 
+.bg-dark-c8{
+    background: rgba(6, 25, 12, 0.98);
+    backdrop-filter: blur(10px);
+}
+
 /* Mobile Menu */
 #mobile-menu {
     position: fixed;
