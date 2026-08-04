@@ -17,7 +17,8 @@ const {
   robots = "index,follow"
 } = Astro.props;
 
-const site = import.meta.env.PUBLIC_SITE_URL;
+const site = import.meta.env.PUBLIC_SITE_URL || "https://circuitoocho.com";
+
 const canonicalUrl = canonical
   ? new URL(canonical, site).toString()
   : site;
