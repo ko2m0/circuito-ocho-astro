@@ -1,5 +1,17 @@
 ---
 import '../styles/style.css';
+
+import SEO from "../components/SEO.astro";
+
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+
+const {
+  title,
+  description,
+  canonical,
+  lang = "es"
+} = Astro.props;
+
 ---
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -24,7 +36,7 @@ import '../styles/style.css';
                     colors: {
                         'c8-green': '#35FC03',
                         'c8-dark': '#06190C',
-                        'c8-gray': '#1a1a1a',
+                        'c8-gray': '#22351b',
                     },
                     fontFamily: {
                         'sans': ['Space Grotesk', 'sans-serif'],
@@ -35,8 +47,29 @@ import '../styles/style.css';
             }
         }
     </script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${GTM_ID}');
+    </script>
+
+    <SEO
+  title={title}
+  description={description}
+  canonical={canonical}
+  lang={lang}
+/>
+
 </head>
 <body class="bg-c8-dark text-white font-sans">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id='${GTM_ID}'"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <slot />
 </body>
 </html>
