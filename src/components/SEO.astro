@@ -8,11 +8,13 @@ export interface Props {
   robots?: string;
 }
 
+import { C8 } from "../config";
+
 const {
-  title = "Circuito Ocho",
-  description = "",
+  title = C8.seo.title,
+  description = C8.seo.description,
   canonical = "",
-  image = "/img/og-image.jpg",
+  image = C8.seo.image,
   lang = "es",
   robots = "index,follow"
 } = Astro.props;

@@ -1,7 +1,7 @@
 ---
 import '../styles/style.css';
-
 import SEO from "../components/SEO.astro";
+import { C8 } from "../config";
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
@@ -14,12 +14,12 @@ const {
 
 ---
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang={lang ?? C8.site.defaultLanguage} class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#06190C">
+    <meta name="theme-color" content={C8.site.themeColor}>
     <meta name="author" content="Circuito Ocho">
     <meta name="generator" content={Astro.generator} />
     <title>Circuito Ocho | Gestión mensual Neuro-estratégica de Marketing Digital</title>
