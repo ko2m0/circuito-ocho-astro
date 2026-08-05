@@ -1,7 +1,10 @@
 ---
-import '../styles/style.css';
-import SEO from "../components/SEO.astro";
-import { C8 } from "../config";
+import "@/styles/tailwind.css";
+import "@/styles/style.css";
+import SEO from "@/components/SEO.astro";
+import { C8 } from "@/config";
+
+
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
@@ -14,7 +17,7 @@ const {
 
 ---
 <!DOCTYPE html>
-<html lang={lang ?? C8.site.defaultLanguage} class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,11 +25,11 @@ const {
     <meta name="theme-color" content={C8.site.themeColor}>
     <meta name="author" content="Circuito Ocho">
     <meta name="generator" content={Astro.generator} />
-    <title>Circuito Ocho | Gestión mensual Neuro-estratégica de Marketing Digital</title>
+    
 
     <link rel="icon" type="image/png" href="/img/C8_logo0626_F4.png">
+  
 
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
 
     <link
     rel="preload"
@@ -39,34 +42,19 @@ const {
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
 />
 
-
-    <script is:inline>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'c8-green': '#35FC03',
-                        'c8-dark': '#06190C',
-                        'c8-gray': '#22351b',
-                    },
-                    fontFamily: {
-                        'sans': ['Space Grotesk', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                        'pixel': ['Sanspix', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
     <!-- Google Tag Manager -->
-    <script is:inline>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${GTM_ID}');
-    </script>
+    <script define:vars={{ GTM_ID }}>
+(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer',GTM_ID);
+</script>
 
     <SEO
   title={title}
@@ -78,8 +66,14 @@ const {
 </head>
 <body class="bg-c8-dark text-white font-sans">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id='${GTM_ID}'"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+    <iframe
+     src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+     height="0"
+     width="0"
+     style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
     <slot />
 </body>
