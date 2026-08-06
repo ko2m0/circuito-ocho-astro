@@ -1,11 +1,37 @@
-  // Intersection Observer for reveal animations
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+export function initReveal() {
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const elements = document.querySelectorAll(".reveal");
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold: 0.1,
+
+            rootMargin: "0px 0px -50px 0px"
+
+        }
+
+    );
+
+    elements.forEach(el => observer.observe(el));
+
+}

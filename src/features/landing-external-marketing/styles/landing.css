@@ -1,4 +1,4 @@
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', sans-serif;
     background-color: #F7F5F0;
@@ -7,18 +7,16 @@
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'ss01' on, 'cv01' on;
   }
-  
-#external-marketing .font-display {
+  .font-display {
     font-family: 'Fraunces', serif;
     font-weight: 400;
     font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 0;
     letter-spacing: -0.02em;
   }
-
-#external-marketing  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
 
   /* Reveal animations */
-  #external-marketing .reveal {
+  .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -29,7 +27,7 @@
   .reveal-delay-3 { transition-delay: 0.2s; }
 
   /* Header */
-  #external-marketing .header-scrolled {
+  .header-scrolled {
     background-color: rgba(247, 245, 240, 0.95);
     backdrop-filter: saturate(180%) blur(16px);
     -webkit-backdrop-filter: saturate(180%) blur(16px);
@@ -37,29 +35,29 @@
   }
 
   /* Buttons */
-  #external-marketing .btn-primary {
+  .btn-primary {
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
   }
-  #external-marketing .btn-primary:hover {
+  .btn-primary:hover {
     background-color: #1F3320;
     transform: translateY(-2px);
     box-shadow: 0 12px 32px -10px rgba(45, 74, 43, 0.5);
   }
-  #external-marketing .btn-primary:active { transform: translateY(0); }
+  .btn-primary:active { transform: translateY(0); }
 
-  #external-marketing .btn-whatsapp {
+  .btn-whatsapp {
     transition: all 0.25s ease;
   }
-  #external-marketing .btn-whatsapp:hover {
+  .btn-whatsapp:hover {
     background-color: #22c55e;
     transform: translateY(-2px);
     box-shadow: 0 12px 32px -10px rgba(34, 197, 94, 0.4);
   }
 
   /* Inputs */
-  #external-marketing input:focus, textarea:focus {
+  input:focus, textarea:focus {
     outline: none;
     border-color: #2D4A2B;
     background-color: #FFFFFF;
@@ -67,29 +65,29 @@
   }
 
   /* Accordion */
-  #external-marketing .accordion-content {
+  .accordion-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  #external-marketing .accordion-item.active .accordion-content { max-height: 400px; }
-  #external-marketing .accordion-icon { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-  #external-marketing .accordion-item.active .accordion-icon { transform: rotate(45deg); }
+  .accordion-item.active .accordion-content { max-height: 400px; }
+  .accordion-icon { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .accordion-item.active .accordion-icon { transform: rotate(45deg); }
 
   /* Logo marquee */
-  #external-marketing .logo-item {
+  .logo-item {
     transition: opacity 0.3s ease;
     opacity: 0.6;
   }
-  #external-marketing .logo-item:hover { opacity: 1; }
+  .logo-item:hover { opacity: 1; }
 
   /* Video placeholder */
-  #external-marketing .video-placeholder {
+  .video-placeholder {
     background: radial-gradient(ellipse at top, #1a1a1a 0%, #0F0F0F 70%);
     position: relative;
     overflow: hidden;
   }
-  #external-marketing .video-placeholder::before {
+  .video-placeholder::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -99,25 +97,25 @@
     background-size: 40px 40px;
     pointer-events: none;
   }
-  #external-marketing .play-button {
+  .play-button {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  #external-marketing .play-button:hover {
+  .play-button:hover {
     transform: scale(1.08);
     background-color: #2D4A2B;
   }
 
   /* Comparison table */
-  #external-marketing .comparison-row {
+  .comparison-row {
     transition: background-color 0.2s ease;
   }
-  #external-marketing .comparison-row:hover {
+  .comparison-row:hover {
     background-color: rgba(45, 74, 43, 0.04);
   }
 
   /* Fit items */
-  #external-marketing .fit-yes { border-left: 2px solid #2D4A2B; }
-  #external-marketing .fit-no { border-left: 2px solid #E5E2DB; }
+  .fit-yes { border-left: 2px solid #2D4A2B; }
+  .fit-no { border-left: 2px solid #E5E2DB; }
 
   /* Mobile sticky CTA */
   @media (max-width: 767px) {
@@ -140,7 +138,7 @@
   }
 
   /* Floating WhatsApp */
-  #external-marketing .whatsapp-float {
+  .whatsapp-float {
     position: fixed;
     bottom: 24px;
     right: 24px;
@@ -156,7 +154,7 @@
     transition: all 0.3s ease;
     animation: pulse 2s infinite;
   }
-  #external-marketing .whatsapp-float:hover {
+  .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
   }
@@ -179,7 +177,7 @@
   }
 
   /* Urgency badge */
-  #external-marketing .urgency-badge {
+  .urgency-badge {
     background: linear-gradient(135deg, #2D4A2B 0%, #1F3320 100%);
     animation: shimmer 3s infinite;
   }

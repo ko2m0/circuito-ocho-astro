@@ -1,25 +1,25 @@
-export function initForm(){
+export function initForm() {
 
-// Form handling
-  const form = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalHTML = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<span>Enviando...</span>';
-    submitBtn.disabled = true;
+    const success = document.getElementById("formSuccess");
 
-    setTimeout(() => {
-      formSuccess.classList.remove('hidden');
-      form.reset();
-      submitBtn.innerHTML = originalHTML;
-      submitBtn.disabled = false;
-      setTimeout(() => formSuccess.classList.add('hidden'), 6000);
-    }, 900);
-  });
+    if (!form) return;
 
+    form.addEventListener("submit", e => {
+
+        e.preventDefault();
+
+        success?.classList.remove("hidden");
+
+        form.reset();
+
+        setTimeout(() => {
+
+            success?.classList.add("hidden");
+
+        },6000);
+
+    });
 
 }
-  

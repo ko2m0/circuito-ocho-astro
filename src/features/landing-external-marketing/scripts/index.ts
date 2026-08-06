@@ -1,19 +1,3 @@
-import { initReveal } from "./reveal";
-import { initHeader } from "./header";
-import { initAccordion } from "./accordion";
-import { initForm } from "./form";
-import { initSmoothScroll } from "./smooth-scroll";
+// index.ts
 
-export default function initLanding() {
-
-    initReveal();
-
-    initHeader();
-
-    initAccordion();
-
-    initForm();
-
-    initSmoothScroll();
-
-}
+import "./landing";
