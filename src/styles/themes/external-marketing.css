@@ -1,0 +1,29 @@
+@theme {
+
+--color-cream:#F7F5F0;
+
+--color-creamDark:#EFECE4;
+
+--color-ink:#0F0F0F;
+
+--color-inkSoft:#2A2A2A;
+
+--color-forest:#2D4A2B;
+
+--color-forestDark:#1F3320;
+
+--color-sage:#8BA888;
+
+--color-muted:#6B6B6B;
+
+--color-line:#E5E2DB;
+
+--color-card:#FFFFFF;
+
+--font-display:"Fraunces", serif;
+
+--font-body:"Inter", sans-serif;
+
+--font-mono:"JetBrains Mono", monospace;
+
+}

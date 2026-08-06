@@ -5,7 +5,9 @@ export const COMPANY = {
 
   slogan: "Gestión mensual Neuro-Estratégica de Marketing Digital",
 
-  email: "hola@circuitoocho.com",
+  email: "holacircuitoocho@gmail.com",
+
+  whatsapp: "5217701540400",
 
   city: "Ciudad de México",
 

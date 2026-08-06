@@ -1,5 +1,7 @@
 @theme {
 
+    /* Homepage */
+
 --color-c8-green: #35FC03;
 
 --color-c8-dark: #06190C;
@@ -11,5 +13,36 @@
 --font-mono: "JetBrains Mono", monospace;
 
 --font-pixel: "Sanspix", sans-serif;
+
+
+    /* External-Marketing */
+
+ --color-extmkt-cream:#F7F5F0;
+
+--color-extmkt-creamDark:#EFECE4;
+
+--color-extmkt-ink:#0F0F0F;
+
+--color-extmkt-inkSoft:#2A2A2A;
+
+--color-extmkt-forest:#2D4A2B;
+
+--color-extmkt-forestDark:#1F3320;
+
+--color-extmkt-sage:#8BA888;
+
+--color-extmkt-muted:#6B6B6B;
+
+--color-extmkt-line:#E5E2DB;
+
+--color-extmkt-card:#FFFFFF;
+
+--font-extmkt-display:"Fraunces", serif;
+
+--font-extmkt-body:"Inter", sans-serif;
+
+--font-extmkt-mono:"JetBrains Mono", monospace;   
+
+
 
 }

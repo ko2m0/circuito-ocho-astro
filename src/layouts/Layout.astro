@@ -1,10 +1,9 @@
 ---
 import "@/styles/tailwind.css";
+import "@/styles/themes/c8.css"
 import "@/styles/style.css";
 import SEO from "@/components/SEO.astro";
 import { C8 } from "@/config";
-
-
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
@@ -16,6 +15,7 @@ const {
 } = Astro.props;
 
 ---
+
 <!DOCTYPE html>
 <html lang={lang} class="scroll-smooth">
 <head>
@@ -29,8 +29,6 @@ const {
 
     <link rel="icon" type="image/png" href="/img/C8_logo0626_F4.png">
   
-
-
     <link
     rel="preload"
     as="style"
