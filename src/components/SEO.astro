@@ -6,50 +6,43 @@ export interface Props {
   image?: string;
   lang?: string;
   robots?: string;
+  type?: string;
+  published?: string;
+  updated?: string;
 }
 
 import { C8 } from "@/config";
 
 const {
-  title = C8.seo.title,
+  title = C8.site.name,
   description = C8.seo.description,
-  canonical = "",
-  image = C8.seo.image,
+  canonical = C8.site.url,
+  image = "/img/og-image.jpg",
+  robots = "index,follow",
+  type = "website",
   lang = "es",
-  robots = "index,follow"
 } = Astro.props;
 
-const site = import.meta.env.PUBLIC_SITE_URL || "https://circuitoocho.com";
-
-const canonicalUrl = canonical
-  ? new URL(canonical, site).toString()
-  : site;
+const imageUrl = image.startsWith("http")
+  ? image
+  : `${C8.site.url}${image}`;
 ---
 
 <title>{title}</title>
 
 <meta name="description" content={description} />
-
 <meta name="robots" content={robots} />
 
-<link rel="canonical" href={canonicalUrl} />
+<link rel="canonical" href={canonical} />
 
+<meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
-
 <meta property="og:description" content={description} />
-
-<meta property="og:type" content="website" />
-
-<meta property="og:url" content={canonicalUrl} />
-
-<meta property="og:image" content={image} />
-
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
 <meta property="og:locale" content={lang === "es" ? "es_MX" : "en_US"} />
 
 <meta name="twitter:card" content="summary_large_image" />
-
 <meta name="twitter:title" content={title} />
-
 <meta name="twitter:description" content={description} />
-
-<meta name="twitter:image" content={image} />
+<meta name="twitter:image" content={imageUrl} />

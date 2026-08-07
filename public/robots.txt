@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+
+Sitemap:
+
+https://circuitoocho.com/sitemap-index.xml

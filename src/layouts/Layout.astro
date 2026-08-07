@@ -5,13 +5,17 @@ import "@/styles/style.css";
 import SEO from "@/components/SEO.astro";
 import { C8 } from "@/config";
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+import { ANALYTICS } from "@/config";
+
+const GTM_ID = ANALYTICS.gtm;
 
 const {
   title,
   description,
   canonical,
-  lang = "es"
+  lang = "es",
+  type = "website",
+  image = "/"
 } = Astro.props;
 
 ---
@@ -26,6 +30,12 @@ const {
     <meta name="author" content="Circuito Ocho">
     <meta name="generator" content={Astro.generator} />
     
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content={lang === "es" ? "es_MX" : "en_US"} />
 
     <link rel="icon" type="image/png" href="/img/C8_logo0626_F4.png">
   

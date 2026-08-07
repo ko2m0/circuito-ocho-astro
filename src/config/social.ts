@@ -1,8 +1,8 @@
 export const SOCIAL = {
 
-facebook: "",
+facebook: "https://www.facebook.com/ochocircuito",
 
-linkedin: "",
+linkedin: "https://www.linkedin.com/company/circuito-ocho/",
 
 instagram: "",
 

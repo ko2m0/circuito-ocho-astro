@@ -9,7 +9,7 @@ export const COMPANY = {
 
   whatsapp: "5217701540400",
 
-  city: "Ciudad de México",
+  city: "Estado de México",
 
   country: "México"
 
