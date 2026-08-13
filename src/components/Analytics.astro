@@ -1,0 +1,59 @@
+---
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
+const ADS_ID = import.meta.env.PUBLIC_GOOGLE_ADS_ID;
+---
+
+<!-- TEMPORARY C8 ANALYTICS DEBUG -->
+<meta
+  name="c8-gtm-debug"
+  content={GTM_ID ?? "UNDEFINED"}
+/>
+
+<meta
+  name="c8-ga4-debug"
+  content={GA4_ID ?? "UNDEFINED"}
+/>
+
+<!-- Google Tag Manager -->
+{GTM_ID && (
+  <script define:vars={{ GTM_ID }}>
+    (function(w,d,s,l,i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+
+      var f = d.getElementsByTagName(s)[0];
+      var j = d.createElement(s);
+      var dl = l != 'dataLayer' ? '&l=' + l : '';
+
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+
+      f.parentNode.insertBefore(j,f);
+    })(window, document, 'script', 'dataLayer', GTM_ID);
+  </script>
+)}
+
+<!-- Google Analytics 4 -->
+{GA4_ID && (
+  <>
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+    ></script>
+
+    <script define:vars={{ GA4_ID }}>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', GA4_ID);
+    </script>
+  </>
+)}

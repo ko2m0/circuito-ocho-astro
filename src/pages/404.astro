@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locale = 'es';
+---
+<Layout locale={locale} title="404 — Circuito Desconectado | Circuito Ocho">
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-c8-black pt-24 pb-16">
+    <!-- Grid background -->
+    <div class="absolute inset-0 c8-grid-bg opacity-30"></div>
+    
+    <!-- Radial glow effects -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-c8-magenta/5 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-c8-neon/5 blur-3xl pointer-events-none"></div>
+    
+    <!-- Scanline overlay -->
+    <div class="absolute inset-0 c8-scanline pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+
+      
+       <!-- Logo grande con efecto glitch -->
+      <div class="mb-12 relative inline-block">
+        <!-- Logo  -->
+       <img src="/img/C8_logo0626_F4.png" alt="Circuito Ocho Logo" class="h-32 w-32">
+        <!-- 
+        <svg width="120" height="120" viewBox="0 0 32 32" class="animate-pulse-slow">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#00F0FF" stroke-width="1"/>
+          <circle cx="16" cy="16" r="8" fill="none" stroke="#FF2E9F" stroke-width="1"/>
+          <circle cx="16" cy="16" r="2" fill="#00F0FF"/>
+          <line x1="2" y1="16" x2="30" y2="16" stroke="#00F0FF" stroke-width="0.5" opacity="0.5"/>
+          <line x1="16" y1="2" x2="16" y2="30" stroke="#00F0FF" stroke-width="0.5" opacity="0.5"/>
+        </svg>
+        -->
+        <!-- Glitch effect lines 
+        <div class="absolute inset-0 opacity-30 animate-glitch">
+          <div class="absolute top-1/4 left-0 w-full h-px bg-c8-neon"></div>
+          <div class="absolute top-3/4 left-0 w-full h-px bg-c8-magenta"></div>
+        </div>
+        -->
+      </div>
+              <!-- Error code -->
+      <div class="font-mono text-xl tracking-[0.3em] text-c8-neon/70 mb-4">
+        ERROR 404 · CIRCUITO DESCONECTADO
+      </div>
+
+      <!-- Main heading -->
+      <h1 class="hero-animate hero-animate-delay-1 text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                  Señal Perdida
+              </h1>
+
+      
+      <!-- Action buttons -->
+      <div class="flex flex-wrap gap-4 justify-center mb-16">
+        <a href="/" class="btn-neon bg-c8-green text-c8-dark px-8 py-4 rounded font-mono font-bold hover:bg-white transition-colors text-lg uppercase">
+                        Volver al Inicio
+                    </a>
+
+        <a href="/services/external-marketing-department" class="btn-neon bg-c8-green text-c8-dark px-8 py-4 rounded font-mono font-bold hover:bg-white transition-colors text-lg uppercase">
+                        Ver Servicios
+                    </a>            
+        
+        
+      </div>
+
+      
+
+      <!-- Decorative circuit nodes -->
+      <div class="absolute top-20 left-10 w-2 h-2 rounded-full bg-c8-neon/30 animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-2 h-2 rounded-full bg-c8-magenta/30 animate-pulse"></div>
+      <div class="absolute top-1/3 right-20 w-1 h-1 rounded-full bg-c8-violet/40 animate-pulse"></div>
+    </div>
+  </section>
+</Layout>

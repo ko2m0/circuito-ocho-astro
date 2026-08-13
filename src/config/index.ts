@@ -1,11 +1,3 @@
-export { SITE } from "./site";
-export { COMPANY } from "./company";
-export { DEFAULT_SEO } from "./seo";
-export { NAVIGATION } from "./navigation";
-export { SERVICES } from "./services";
-export { SOCIAL } from "./social";
-export { ANALYTICS } from "./analytics";
-
 import { SITE } from "./site";
 import { COMPANY } from "./company";
 import { DEFAULT_SEO } from "./seo";
