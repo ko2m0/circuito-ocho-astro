@@ -1,5 +1,6 @@
 ---
 import { C8 } from "@/config";
+
 ---
 <!-- ============ FOOTER ============ -->
 <footer class="bg-extmkt-cream border-t border-extmkt-line py-12 px-6 lg:px-12">
@@ -33,8 +34,8 @@ import { C8 } from "@/config";
       <div class="md:col-span-2">
         <h4 class="font-mono text-xs tracking-widest uppercase text-extmkt-muted mb-3">Legal</h4>
         <ul class="space-y-2 text-extmkt-ink-soft text-sm">
-          <li><a href="#" class="hover:text-extmkt-forest transition-colors">Privacidad</a></li>
-          <li><a href="#" class="hover:text-extmkt-forest transition-colors">Términos</a></li>
+          <li><a href="#privacy" class="hover:text-extmkt-forest transition-colors">Privacidad</a></li>
+          <li><a href="#terms" class="hover:text-extmkt-forest transition-colors">Términos</a></li>
         </ul>
       </div>
     </div>
@@ -44,6 +45,69 @@ import { C8 } from "@/config";
     </div>
   </div>
 </footer>
+
+<!-- Privacy Policy Modal -->
+<div id="privacy-modal" class="hidden fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-6">
+    <div class="bg-c8-dark border border-c8-green/30 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold text-c8-green">Protocolo de Privacidad</h2>
+            <button id="close-privacy" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+        </div>
+        <div class="text-gray-300 space-y-4">
+            <p>En Circuito Ocho ("nosotros", "el Servicio"), nos comprometemos a proteger la privacidad de nuestros usuarios. Este documento describe cómo recopilamos, utilizamos y protegemos su información personal al interactuar con nuestro sitio web y servicios.</p>
+            <h3 class="text-xl font-bold text-white mt-6">1. Información Recopilada</h3>
+            <p>Recopilamos información que usted proporciona voluntariamente, como nombre, correo electrónico y detalles de contacto a través de formularios. También podemos recopilar datos técnicos automáticos (dirección IP, tipo de navegador, páginas visitadas) mediante cookies y tecnologías de seguimiento para mejorar la experiencia del usuario.</p>
+            <h3 class="text-xl font-bold text-white mt-6">2. Uso de la Información</h3>
+            <ul class="list-disc list-inside space-y-2">
+                <li>Proveer, operar y mantener nuestro Servicio.</li>
+                <li>Mejorar, personalizar y expandir nuestro contenido.</li>
+                <li>Comunicarnos con usted para fines de soporte, actualización o marketing (con su consentimiento).</li>
+                <li>Enviarle correos electrónicos relacionados con auditorías o propuestas.</li>
+                <li>Prevenir actividades fraudulentas y cumplir con obligaciones legales.</li>
+            </ul>
+            <h3 class="text-xl font-bold text-white mt-6">3. Cookies y Tecnologías Similares</h3>
+            <p>Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas (como Google Analytics) para entender el tráfico de usuarios. Puede configurar su navegador para rechazar cookies, aunque esto podría afectar ciertas funcionalidades del sitio.</p>
+            <h3 class="text-xl font-bold text-white mt-6">4. Compartición de Datos</h3>
+            <p>No vendemos ni alquilamos su información personal a terceros. Podemos compartir datos con proveedores de confianza que nos ayudan a operar el sitio (ej. servicios de alojamiento, email marketing) bajo estrictos acuerdos de confidencialidad.</p>
+            <h3 class="text-xl font-bold text-white mt-6">5. Sus Derechos</h3>
+            <p>Usted tiene derecho a acceder, corregir, eliminar o restringir el procesamiento de sus datos personales. Para ejercer estos derechos, contáctenos a través del formulario de contacto o escriba a privacidad@circuitoocho.com.</p>
+            <h3 class="text-xl font-bold text-white mt-6">6. Cambios en este Protocolo</h3>
+            <p>Nos reservamos el derecho de actualizar esta política en cualquier momento. Publicaremos cambios notables en esta página y actualizaremos la fecha de "Última actualización" en la parte inferior.</p>
+            <p class="text-sm text-gray-400 mt-6">Última actualización: 10 de Abril de 2026</p>
+        </div>
+    </div>
+</div>
+
+<!-- Terms Modal -->
+<div id="terms-modal" class="hidden fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-6">
+    <div class="bg-c8-dark border border-c8-green/30 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold text-c8-green">Términos de Servicio</h2>
+            <button id="close-terms" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+        </div>
+        <div class="text-gray-300 space-y-4">
+            <p>Al acceder o utilizar el sitio web y servicios de Circuito Ocho, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones.</p>
+            <h3 class="text-xl font-bold text-white mt-6">1. Uso del Servicio</h3>
+            <p>Nuestros servicios están disponibles únicamente para empresas y profesionales que busquen consultoría de marketing estratégico. Usted se compromete a utilizar el Servicio de manera legal y no infringir derechos de terceros ni las leyes aplicables.</p>
+            <h3 class="text-xl font-bold text-white mt-6">2. Propiedad Intelectual</h3>
+            <p>Todo el contenido presente en este sitio (textos, logotipos, gráficos, código, software) es propiedad exclusiva de Circuito Ocho o sus licenciantes y está protegido por leyes de derechos de autor. Queda estrictamente prohibida la reproducción sin autorización previa por escrito.</p>
+            <h3 class="text-xl font-bold text-white mt-6">3. Limitación de Responsabilidad</h3>
+            <p>Circuito Ocho proporciona este Servicio "tal cual" y no garantiza resultados específicos de marketing, incrementos de ROI o posicionamiento en motores de búsqueda. En la medida máxima permitida por la ley, no seremos responsables de daños indirectos, incidentales o consecuentes derivados del uso del Servicio.</p>
+            <h3 class="text-xl font-bold text-white mt-6">4. Honorarios y Pagos</h3>
+            <p>Los servicios contratados están sujetos a los precios publicados o pactados por escrito. Los pagos deben realizarse dentro de los plazos establecidos. Los impagos pueden resultar en la suspensión inmediata del servicio. Las tarifas no incluyen el presupuesto publicitario de plataformas externas (Meta, Google, etc.), el cual es responsabilidad del cliente.</p>
+            <h3 class="text-xl font-bold text-white mt-6">5. Terminación</h3>
+            <p>Podemos suspender o terminar su acceso al Servicio de inmediato, sin previo aviso ni responsabilidad, por cualquier razón, incluyendo el incumplimiento de estos Términos. Las cláusulas de propiedad intelectual y limitación de responsabilidad sobrevivirán a la terminación.</p>
+            <h3 class="text-xl font-bold text-white mt-6">6. Ley Aplicable</h3>
+            <p>Estos Términos se regirán por las leyes aplicables en la jurisdicción de operación de Circuito Ocho. Cualquier disputa derivada de estos términos se someterá a los tribunales competentes.</p>
+            <h3 class="text-xl font-bold text-white mt-6">7. Modificaciones</h3>
+            <p>Circuito Ocho se reserva el derecho de modificar estos términos en cualquier momento. El uso continuado del Servicio después de cambios constituye aceptación de los nuevos términos.</p>
+            <p class="text-sm text-gray-400 mt-6">Última actualización: 10 de Abril de 2026</p>
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- Mobile Sticky CTA -->
 <div class="mobile-sticky-cta md:hidden" id="mobileCta">

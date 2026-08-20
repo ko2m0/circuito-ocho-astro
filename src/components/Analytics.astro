@@ -1,19 +1,7 @@
 ---
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
-const ADS_ID = import.meta.env.PUBLIC_GOOGLE_ADS_ID;
 ---
-
-<!-- TEMPORARY C8 ANALYTICS DEBUG -->
-<meta
-  name="c8-gtm-debug"
-  content={GTM_ID ?? "UNDEFINED"}
-/>
-
-<meta
-  name="c8-ga4-debug"
-  content={GA4_ID ?? "UNDEFINED"}
-/>
 
 <!-- Google Tag Manager -->
 {GTM_ID && (

@@ -15,3 +15,5 @@ export const C8 = {
   social: SOCIAL,
   analytics: ANALYTICS,
 } as const;
+
+export { SITE, COMPANY };
