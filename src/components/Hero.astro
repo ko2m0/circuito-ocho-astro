@@ -1,4 +1,15 @@
- <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+---
+import {
+  translations,
+  defaultLocale,
+  type Locale
+} from "@/i18n";
+
+const locale: Locale = (Astro.props.lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+---
+
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <canvas id="bg-canvas" class="fixed"></canvas>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -6,7 +17,7 @@
                 <div class="hero-animate hero-animate-delay-1 mb-8">
                     <div class="status-badge">
                         <div class="status-dot"></div>
-                        <span>Estado del Sistema: En Línea</span>
+                        <span>{t.hero.status}</span>
                     </div>
                 </div>
 
@@ -14,9 +25,7 @@
                     Activa la <span class="text-c8-green glow-text">evolución</span><br>de tu marca
                 </h1>
 
-                <p class="hero-animate hero-animate-delay-2 text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
-                    Operamos tu presencia digital como un sistema vivo que aprende y se ajusta mes con mes.
-                </p>
+                <p class="hero-animate hero-animate-delay-2 text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">{t.hero.operate}</p>
 
                 <div class="hero-animate hero-animate-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#contacto" class="btn-neon bg-c8-green text-c8-dark px-8 py-4 rounded font-mono font-bold hover:bg-white transition-colors text-lg">

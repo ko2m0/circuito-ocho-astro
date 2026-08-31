@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Circuito Ocho",
+  name: "Circuito Ocho :: Gestión mensual de Marketing Digital",
 
   url: "https://circuitoocho.com",
 

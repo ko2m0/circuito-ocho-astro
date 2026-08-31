@@ -7,7 +7,7 @@ export function organizationSchema() {
     name: COMPANY.brandName,
     url: SITE.url,
     email: COMPANY.email,
-    logo: `${SITE.url}/img/C8_logo0626_F4.png`,
+    logo: `${SITE.url}${SITE.favicon}`,
   };
 }
 
@@ -17,5 +17,6 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: SITE.name,
     url: SITE.url,
+    inLanguage: ["es-MX", "en-US"],
   };
 }

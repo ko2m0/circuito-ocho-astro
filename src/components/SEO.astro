@@ -19,8 +19,10 @@ const {
   canonical = C8.site.url,
   image = "/img/og-image.jpg",
   robots = "index,follow",
-  type = "website",
   lang = "es",
+  type = "website",
+  published,
+  updated,
 } = Astro.props;
 
 const imageUrl = image.startsWith("http")
@@ -35,14 +37,54 @@ const imageUrl = image.startsWith("http")
 
 <link rel="canonical" href={canonical} />
 
+<!-- Open Graph -->
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:locale" content={lang === "es" ? "es_MX" : "en_US"} />
+<meta property="og:site_name" content={C8.site.name} />
+<meta
+  property="og:locale"
+  content={lang === "es" ? "es_MX" : "en_US"}
+/>
 
+{lang === "es" && (
+  <meta property="og:locale:alternate" content="en_US" />
+)}
+
+{lang === "en" && (
+  <meta property="og:locale:alternate" content="es_MX" />
+)}
+
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
+
+{published && (
+  <meta property="article:published_time" content={published} />
+)}
+
+{updated && (
+  <meta property="article:modified_time" content={updated} />
+)}
+
+<link
+  rel="alternate"
+  hreflang="es"
+  href={canonical}
+/>
+
+<link
+  rel="alternate"
+  hreflang="en"
+  href={`${C8.site.url}/en/`}
+/>
+
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={C8.site.url}
+/>

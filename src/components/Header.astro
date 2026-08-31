@@ -1,24 +1,36 @@
+---
+import {
+  translations,
+  defaultLocale,
+  type Locale
+} from "@/i18n";
+
+const locale: Locale = (Astro.props.lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+---
+
+
 <nav class="fixed top-0 left-0 right-0 z-50 bg-c8-dark/80 backdrop-blur-md border-b border-c8-green/20">
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3">
+            <a href={locale === "en" ? "/en/" : "/"} class="flex items-center space-x-3">
                 <img src="/img/C8_logo0626_F4.png" alt="Circuito Ocho Logo" class="h-10 w-10">
                 <span class="text-c8-green font-mono font-bold text-lg">CIRCUITO OCHO</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#problema" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Problema</a>
-                <a href="#sistema" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Sistema</a>
-                <a href="#servicios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Servicios</a>
-                <a href="#proceso" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Proceso</a>
-                <a href="#testimonios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Testimonios</a>
-                <a href="#precios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">Precios</a>
+                <a href="#problema" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.problem}</a>
+                <a href="#sistema" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.system}</a>
+                <a href="#servicios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.services}</a>
+                <a href="#proceso" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.process}</a>
+                <a href="#testimonios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.testimonials}</a>
+                <a href="#precios" class="text-white hover:text-c8-green transition-colors font-mono text-sm">{t.header.pricing}</a>
                 <a href="#contacto" class="bg-c8-green text-c8-dark px-6 py-2 rounded font-mono font-bold hover:bg-white transition-colors">
-                    Iniciar
+                    {t.header.start}
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-c8-green z-[60] relative" aria-label="Abrir menú principal" type="button">
+            <button id="mobile-menu-btn" class="md:hidden text-c8-green z-[60] relative" aria-label={t.header.openMenu} type="button">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -28,14 +40,14 @@
 
     <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-lg z-[55] opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
         <div class="flex flex-col items-center justify-center h-auto gap-8 p-8 bg-black/75 border-2 border-c8-green w-full">
-            <a href="#problema" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Problema</a>
-            <a href="#sistema" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Sistema</a>
-            <a href="#servicios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Servicios</a>
-            <a href="#proceso" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Proceso</a>
-            <a href="#testimonios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Testimonios</a>
-            <a href="#precios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">Precios</a>
+            <a href="#problema" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.problem}</a>
+            <a href="#sistema" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.system}</a>
+            <a href="#servicios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.services}</a>
+            <a href="#proceso" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.process}</a>
+            <a href="#testimonios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.testimonials}</a>
+            <a href="#precios" class="mobile-menu-link text-white hover:text-c8-green transition-colors font-mono text-2xl">{t.header.pricing}</a>
             <a href="#contacto" class="mobile-menu-link bg-c8-green text-c8-dark px-8 py-3 rounded font-mono font-bold hover:bg-white transition-colors text-center mt-4 text-xl border-2 border-black">
-                Iniciar Sistema
+                {t.header.start}
             </a>
         </div>
     </div>

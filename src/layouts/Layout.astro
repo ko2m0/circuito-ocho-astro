@@ -4,6 +4,7 @@ import "@/styles/themes/c8.css"
 import "@/styles/style.css";
 import SEO from "@/components/SEO.astro";
 import { C8 } from "@/config";
+import Schema from "@/components/Schema.astro";
 
 import Analytics from "@/components/Analytics.astro";
 import AnalyticsBody from "@/components/AnalyticsBody.astro";
@@ -29,14 +30,9 @@ const {
     <meta name="author" content="Circuito Ocho">
     <meta name="generator" content={Astro.generator} />
     
-    <meta property="og:type" content={type} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={image} />
-    <meta property="og:locale" content={lang === "es" ? "es_MX" : "en_US"} />
+    
 
-    <link rel="icon" type="image/png" href="/img/C8_logo0626_F4.png">
+    <link rel="icon" type="image/png" href={C8.site.favicon}>
   
     <link
     rel="preload"
@@ -56,12 +52,10 @@ const {
   canonical={canonical}
   lang={lang}
 />
+
+<Schema />
 <Analytics />
 
-<meta
-    name="c8-gtm-debug"
-    content={C8.analytics.gtm ?? "UNDEFINED"}
-/>
 
 </head>
 <body class="bg-c8-dark text-white font-sans">

@@ -1,0 +1,9 @@
+---
+import {
+  organizationSchema,
+  websiteSchema,
+} from "@/config/schema";
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema())} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema())} />

@@ -1,5 +1,14 @@
 ---
 import { C8 } from "@/config";
+
+import {
+  translations,
+  defaultLocale,
+  type Locale
+} from "@/i18n";
+
+const locale: Locale = (Astro.props.lang as Locale) ?? defaultLocale;
+const t = translations[locale];
 ---
 
 <footer class="bg-c8-dark border-t border-c8-green/20 py-12 relative z-10">
@@ -16,12 +25,12 @@ import { C8 } from "@/config";
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                     </div>
-                    <p class="text-gray-400 text-sm">© 2026 Todos los Derechos Reservados.</p>
+                    <p class="text-gray-400 text-sm">© 2026 {t.footer.rights} .</p>
                     <p class="text-gray-500 text-xs mt-2">Website made with ♥ and pride by Ko2m0</p>
                 </div>
                 <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-                    <a href="#privacy" class="text-gray-400 hover:text-c8-green transition-colors text-sm">Protocolo de Privacidad</a>
-                    <a href="#terms" class="text-gray-400 hover:text-c8-green transition-colors text-sm">Términos de Servicio</a>
+                    <a href="#privacy" class="text-gray-400 hover:text-c8-green transition-colors text-sm">{t.footer.privacy_title}</a>
+                    <a href="#terms" class="text-gray-400 hover:text-c8-green transition-colors text-sm">{t.footer.terms_title}</a>
                 </div>
             </div>
         </div>
@@ -32,14 +41,14 @@ import { C8 } from "@/config";
 <div id="privacy-modal" class="hidden fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-6">
     <div class="bg-c8-dark border border-c8-green/30 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto p-8">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-3xl font-bold text-c8-green">Protocolo de Privacidad</h2>
+            <h2 class="text-3xl font-bold text-c8-green">{t.footer.privacy_title}</h2>
             <button id="close-privacy" class="text-gray-400 hover:text-white text-2xl">&times;</button>
         </div>
         <div class="text-gray-300 space-y-4">
-            <p>En Circuito Ocho ("nosotros", "el Servicio"), nos comprometemos a proteger la privacidad de nuestros usuarios. Este documento describe cómo recopilamos, utilizamos y protegemos su información personal al interactuar con nuestro sitio web y servicios.</p>
-            <h3 class="text-xl font-bold text-white mt-6">1. Información Recopilada</h3>
-            <p>Recopilamos información que usted proporciona voluntariamente, como nombre, correo electrónico y detalles de contacto a través de formularios. También podemos recopilar datos técnicos automáticos (dirección IP, tipo de navegador, páginas visitadas) mediante cookies y tecnologías de seguimiento para mejorar la experiencia del usuario.</p>
-            <h3 class="text-xl font-bold text-white mt-6">2. Uso de la Información</h3>
+            <p>{t.footer.privacy_p1}</p>
+            <h3 class="text-xl font-bold text-white mt-6">{t.footer.privacy_h3_1}</h3>
+            <p>{t.footer.privacy_p2}</p>
+            <h3 class="text-xl font-bold text-white mt-6">{t.footer.privacy_h3_2}</h3>
             <ul class="list-disc list-inside space-y-2">
                 <li>Proveer, operar y mantener nuestro Servicio.</li>
                 <li>Mejorar, personalizar y expandir nuestro contenido.</li>
