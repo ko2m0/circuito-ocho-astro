@@ -1,0 +1,37 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import Header from "@/features/landing-external-marketing/Header.astro";
+import Footer from "@/features/landing-external-marketing/Footer.astro";
+
+import Hero from "@/features/agendar-consultoria/Hero.astro";
+import Process from "@/features/agendar-consultoria/Process.astro";
+import Outcome from "@/features/agendar-consultoria/Outcome.astro";
+import NoPressure from "@/features/agendar-consultoria/NoPressure.astro";
+import ConsultationForm from "@/features/agendar-consultoria/ConsultationForm.astro";
+import WhatsAppAlt from "@/features/agendar-consultoria/WhatsAppAlt.astro";
+
+import { C8 } from "@/config";
+---
+
+<LandingLayout
+    lang="es"
+    title="Agendar Consultoría | Circuito Ocho"
+    description="30 minutos para entender qué está pasando con tu marketing y qué debería pasar después. Diagnóstico inicial sin compromiso."
+    canonical="https://circuitoocho.com/agendar-consultoria"
+>
+    <Header />
+    <main>
+        <ConsultationForm />
+        <WhatsAppAlt />
+    </main>
+        <Footer />
+
+</LandingLayout>
+
+<script>
+    import "@/features/agendar-consultoria/scripts/consultation";
+</script>
+
+<script>
+    import "@/features/landing-external-marketing/scripts/footermodals"
+</script>

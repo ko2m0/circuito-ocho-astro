@@ -1,0 +1,171 @@
+---
+import { C8 } from "@/config";
+const whatsappUrl = C8.whatsapp.getUrl();
+
+const options = [
+    "No estoy generando suficientes clientes",
+    "Google Ads no está funcionando",
+    "Publicamos contenido pero no genera negocio",
+    "Mi sitio no convierte",
+    "Necesito mejorar SEO",
+    "Mi marketing está desordenado",
+    "No sé exactamente qué está fallando"
+];
+
+---
+
+
+<!-- ============ CONSULTATION FORM SECTION ============ -->
+<section id="formulario" class="pt-28 pb-16 md:py-28 px-6 lg:px-12 border-t border-extmkt-line bg-extmkt-cream text-extmkt-ink">
+  <div class="max-w-350 mx-auto">
+    <div class="grid lg:grid-cols-12 gap-12">
+      
+      <!-- LEFT COLUMN: Context & WhatsApp Alternative (5 cols) -->
+      <div class="lg:col-span-5 reveal">
+        <span class="inline-flex items-center gap-2 text-extmkt-forest text-xs font-mono tracking-wider uppercase px-4 py-2 rounded-sm mb-6 bg-extmkt-cream border border-solid">
+          <span class="w-2 h-2 bg-extmkt-sage rounded-full animate-pulse"></span>
+          Consultoría gratuita · 30 minutos
+        </span>
+        
+        <h1 class="font-extmkt-display text-3xl md:text-4xl leading-[1.1] mb-6">
+          Hablemos de tu marketing.
+        </h1>
+        
+        <p class="text-lg text-extmkt-inkSoft leading-relaxed mb-8">
+          30 minutos para entender qué está pasando y qué debería pasar después.
+        </p>
+        
+        <div class="space-y-4 mb-10">
+          <div class="flex items-start gap-3">
+            <span class="font-extmkt-display text-xl text-extmkt-forest">→</span>
+            <p class="text-extmkt-inkSoft">Entendemos dónde estás y tus objetivos actuales.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="font-extmkt-display text-xl text-extmkt-forest">→</span>
+            <p class="text-extmkt-inkSoft">Detectamos puntos de fuga en tu ecosistema digital.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="font-extmkt-display text-xl text-extmkt-forest">→</span>
+            <p class="text-extmkt-inkSoft">Definimos qué tiene sentido revisar primero.</p>
+          </div>
+        </div>
+
+
+        <div class="pt-8 border-t border-extmkt-line block md:hidden">
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-forest mb-4 reveal">
+            Entremos en Contacto
+        </p>
+            <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-4 reveal reveal-delay-1"></h2>
+
+            <p class="font-body text-base md:text-lg text-inkSoft leading-relaxed mb-8 reveal reveal-delay-2">Llena el siguiente formulario y en menos de 24 horas nos comunicaremos contigo.</p>
+        </div>
+
+        <div class="pt-8 border-t border-extmkt-line hidden md:block">
+          <p class="text-sm text-extmkt-muted mb-3 font-medium">¿Prefieres hablar directamente?</p>
+          <a
+            data-track="whatsapp_click"
+            data-location="consultation_form_alt"
+            href={whatsappUrl}
+            target="_blank" 
+            rel="noopener" 
+            class="btn-whatsapp inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 text-base font-medium rounded-sm"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Hablar por WhatsApp ahora
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Form (6 cols, starting at 7) -->
+      <div class="lg:col-span-6 lg:col-start-7 reveal reveal-delay-1">
+        
+        <!-- OPTION A: Custom HTML Form (Recommended for exact field control & radio buttons) 
+        <form id="consultation-form" class="bg-extmkt-card text-extmkt-ink p-8 md:p-10 rounded-sm border border-extmkt-line" novalidate>
+          
+          <div class="mb-5">
+            <label for="nombre" class="block text-sm font-medium text-extmkt-ink mb-2">Nombre <span class="text-extmkt-forest">*</span></label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name" class="w-full border border-extmkt-line px-4 py-3.5 rounded-sm bg-extmkt-cream text-extmkt-ink placeholder:text-extmkt-muted/50 focus:outline-none focus:border-extmkt-forest focus:ring-1 focus:ring-extmkt-forest transition-all" placeholder="Tu nombre">
+          </div>
+
+          <div class="mb-5">
+            <label for="empresa" class="block text-sm font-medium text-extmkt-ink mb-2">Empresa <span class="text-extmkt-forest">*</span></label>
+            <input type="text" id="empresa" name="empresa" required autocomplete="organization" class="w-full border border-extmkt-line px-4 py-3.5 rounded-sm bg-extmkt-cream text-extmkt-ink placeholder:text-extmkt-muted/50 focus:outline-none focus:border-extmkt-forest focus:ring-1 focus:ring-extmkt-forest transition-all" placeholder="Nombre de tu empresa">
+          </div>
+
+          <div class="mb-5">
+            <label for="whatsapp" class="block text-sm font-medium text-extmkt-ink mb-2">WhatsApp <span class="text-extmkt-forest">*</span></label>
+            <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" class="w-full border border-extmkt-line px-4 py-3.5 rounded-sm bg-extmkt-cream text-extmkt-ink placeholder:text-extmkt-muted/50 focus:outline-none focus:border-extmkt-forest focus:ring-1 focus:ring-extmkt-forest transition-all" placeholder="+52 55 1234 5678">
+          </div>
+
+          <div class="mb-6">
+            <label for="sitio-web" class="block text-sm font-medium text-extmkt-ink mb-2">Sitio web <span class="text-extmkt-muted text-xs font-normal">(opcional)</span></label>
+            <input type="url" id="sitio-web" name="sitio-web" autocomplete="url" class="w-full border border-extmkt-line px-4 py-3.5 rounded-sm bg-extmkt-cream text-extmkt-ink placeholder:text-extmkt-muted/50 focus:outline-none focus:border-extmkt-forest focus:ring-1 focus:ring-extmkt-forest transition-all" placeholder="https://tu-sitio.com">
+          </div>
+
+          <fieldset class="mb-8">
+            <legend class="block text-sm font-medium text-extmkt-ink mb-3">¿Qué quieres resolver? <span class="text-extmkt-forest">*</span></legend>
+            <div class="space-y-2.5">
+              {problemOptions.map((option) => (
+                <label class="flex items-start gap-3 cursor-pointer group p-2 -mx-2 rounded-sm hover:bg-extmkt-creamDark/30 transition-colors">
+                  <input type="radio" name="problema" value={option} required class="mt-1 w-4 h-4 accent-extmkt-forest border-extmkt-line focus:ring-extmkt-forest">
+                  <span class="text-sm text-extmkt-inkSoft group-hover:text-extmkt-ink transition-colors">{option}</span>
+                </label>
+              ))}
+            </div
+          </fieldset>
+
+          <button type="submit" id="submit-btn" class="btn-primary w-full bg-extmkt-forest text-extmkt-cream px-8 py-4 text-base font-medium rounded-sm flex items-center justify-center gap-2 hover:bg-extmkt-forestDark transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+            <span id="submit-text">Agendar consultoría</span>
+            <span id="submit-loading" class="hidden">Enviando...</span>
+          </button>
+
+          <p class="text-xs text-extmkt-muted mt-4 text-center">
+            Te contactamos para coordinar la llamada. Sin spam. Sin compromiso.
+          </p>
+          
+
+          <!-- Success State 
+          <div id="success-message" class="hidden mt-6 p-4 bg-extmkt-forest/10 border border-extmkt-forest/30 rounded-sm">
+            <p class="text-extmkt-forest text-sm font-medium flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Listo. Recibimos tu solicitud. Revisaremos la información y te contactaremos pronto.
+            </p>
+          </div>
+
+          <!-- Error State 
+          <div id="error-message" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-sm">
+            <p class="text-red-800 text-sm font-medium flex items-center gap-2">
+              No pudimos enviar la solicitud. Intenta nuevamente o usa el botón de WhatsApp.
+            </p>
+          </div>
+
+        </form>
+        -->
+        <!-- OPTION B: Tally Embed (Uncomment this block and delete the custom form above if you prefer Tally) -->
+        
+        <div class="bg-extmkt-card text-extmkt-ink p-2 rounded-sm border border-extmkt-line">
+          <iframe 
+            data-tally-src="https://tally.so/embed/aQpkG9?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+            loading="lazy" 
+            width="100%" 
+            height="500" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0" 
+            title="Consultoría Circuito Ocho"
+            class="rounded-sm"
+          ></iframe>
+          <script is:inline>
+            var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+          </script>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>

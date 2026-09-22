@@ -5,6 +5,7 @@ import { NAVIGATION } from "./navigation";
 import { SERVICES } from "./services";
 import { SOCIAL } from "./social";
 import { ANALYTICS } from "./analytics";
+import { WHATSAPP } from "./whatsapp";
 
 export const C8 = {
   site: SITE,
@@ -14,6 +15,9 @@ export const C8 = {
   services: SERVICES,
   social: SOCIAL,
   analytics: ANALYTICS,
+  whatsapp: WHATSAPP,
+
 } as const;
 
 export { SITE, COMPANY };
+
