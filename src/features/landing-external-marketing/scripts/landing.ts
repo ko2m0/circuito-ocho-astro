@@ -2,10 +2,6 @@ import { initHeader } from "@/features/landing-external-marketing/scripts/header
 import { initReveal } from "@/features/landing-external-marketing/scripts/reveal";
 import { initTracking } from "@/features/landing-external-marketing/scripts/tracking";
 
-// Lazy-load these only when needed to reduce initial main-thread work
-let accordionInitialized = false;
-let formInitialized = false;
-
 function initCritical() {
   initHeader();
   initReveal();
@@ -13,20 +9,14 @@ function initCritical() {
 }
 
 function initNonCritical() {
-  // Only import and run these if the user actually interacts with the page
-  if (!accordionInitialized) {
-    import("@/features/landing-external-marketing/scripts/faqaccordion").then((module) => {
-      module.initAccordion();
-      accordionInitialized = true;
-    });
-  }
+  // Dynamically import heavy features only after the page is fully interactive
+  import("@/features/landing-external-marketing/scripts/faqaccordion").then((module) => {
+    module.initAccordion();
+  });
   
-  if (!formInitialized) {
-    import("@/features/landing-external-marketing/scripts/form").then((module) => {
-      module.initForm();
-      formInitialized = true;
-    });
-  }
+  import("@/features/landing-external-marketing/scripts/form").then((module) => {
+    module.initForm();
+  });
 }
 
 // 1. Run critical stuff immediately
@@ -36,21 +26,20 @@ if (document.readyState === "loading") {
   initCritical();
 }
 
-// 2. Defer non-critical stuff until the user shows intent (scrolls or interacts)
-// This dramatically reduces "Total Blocking Time" and "JavaScript Execution Time" in Lighthouse
-const deferNonCritical = () => {
-  initNonCritical();
-  window.removeEventListener("scroll", deferNonCritical);
-  window.removeEventListener("touchstart", deferNonCritical);
-  window.removeEventListener("mousemove", deferNonCritical);
-};
-
-window.addEventListener("scroll", deferNonCritical, { passive: true });
-window.addEventListener("touchstart", deferNonCritical, { passive: true });
-window.addEventListener("mousemove", deferNonCritical, { passive: true });
+// 2. Defer non-critical stuff safely using requestIdleCallback (or setTimeout fallback)
+// This ensures it NEVER blocks the initial LCP/FCP render
+if ("requestIdleCallback" in window) {
+  requestIdleCallback(initNonCritical);
+} else {
+  setTimeout(initNonCritical, 1000); // Fallback: wait 1 second after load
+}
 
 // 3. Astro SPA navigation support
 document.addEventListener("astro:page-load", () => {
   initCritical();
-  // Reset flags on page load if needed, though for a single landing page, this is less critical
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(initNonCritical);
+  } else {
+    setTimeout(initNonCritical, 1000);
+  }
 });

@@ -9,8 +9,7 @@ const {
   title,
   description,
   canonical,
-  lang = "es",
-  lcpImage // 🚀 NEW: Prop to preload the hero image
+  lang = "es"
 } = Astro.props;
 ---
 
@@ -23,34 +22,17 @@ const {
   <title>{title}</title>
   <link rel="icon" type="image/png" href="/img/C8_logo0626_F4.png" />
 
-  <!-- 🚀 1. PRELOAD LCP IMAGE (Critical for fixing 7.1s LCP) -->
-  {lcpImage && (
-    <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />
-  )}
-
-  <!-- 🚀 2. OPTIMIZED FONT LOADING -->
+  <!-- 🚀 SAFE FONT OPTIMIZATION: Preconnect + display=swap (No brittle preloads) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  
-  <!-- 'display=swap' ensures text is visible immediately while the font loads -->
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
 
-  <!-- 🚀 3. PRELOAD CRITICAL FONT (Fraunces) -->
-  <!-- This prevents the "flash of invisible text" on the H1/Hero -->
-  <link
-    rel="preload"
-    as="font"
-    href="https://fonts.gstatic.com/s/fraunces/v27/6NUu8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib14c7qv8oRcTn.woff2"
-    type="font/woff2"
-    crossorigin
-  />
-
   <SEO title={title} description={description} canonical={canonical} lang={lang} />
 
-  <!-- GTM (Already optimized with async, kept as is) -->
+  <!-- GTM (Async, already optimal) -->
   <script is:inline define:vars={{ GTM_ID }}>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -64,9 +46,7 @@ const {
     })(window,document,'script','dataLayer',GTM_ID);
   </script>
 
-  <!-- 🚀 4. FIX SCRIPT PLACEMENT -->
-  <!-- Moved inside <head> with type="module". Astro will hoist and defer it properly, 
-       preventing it from blocking the HTML parser. -->
+  <!-- 🚀 SAFE SCRIPT PLACEMENT: type="module" defers execution until HTML is parsed -->
   <script type="module">
     import "@/features/landing-external-marketing/scripts/landing";
   </script>
