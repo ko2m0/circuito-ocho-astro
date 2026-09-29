@@ -6,7 +6,7 @@ const whatsappUrl = C8.whatsapp.getUrl();
 const isConsultationPage = Astro.url.pathname.includes('/agendar-consultoria');
 
 // Set logo link based on current page
-const logoLink = isConsultationPage ? '/services/external-marketing-department' : '/';
+const logoLink = isConsultationPage ? '/services/external-marketing-department' : '/services/external-marketing-department';
 
 ---
 
@@ -15,7 +15,7 @@ const logoLink = isConsultationPage ? '/services/external-marketing-department' 
   <div class="max-w-350 mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
     <a href={logoLink} class="flex items-center gap-2.5" aria-label="Circuito Ocho - Inicio">
       <img src="/img/C8_logo0626_wF1.svg" alt="Circuito Ocho Logo" class="h-12 w-12">
-            <span class="font-extmkt-display text-l lg:text-xl tracking-tight">{C8.company.brandName}</span>
+            <span class="font-extmkt-display text-l lg:text-xl tracking-tight ">{C8.company.brandName}</span>
     </a>
 
  <!-- NAVIGATION / BUTTONS: Only show if NOT on the consultation page -->
@@ -39,7 +39,7 @@ const logoLink = isConsultationPage ? '/services/external-marketing-department' 
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
           class="btn-primary inline-flex items-center gap-2 bg-extmkt-forest text-extmkt-cream px-5 py-2.5 text-sm font-medium rounded-sm hover:bg-extmkt-forestDark transition-all"
         >
-          Consultoría gratuita
+          Agendar consultoría gratuita
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
