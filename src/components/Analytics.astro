@@ -1,11 +1,11 @@
 ---
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
+import { C8 } from "@/config";
+
+const { gtm } = C8.analytics;
 ---
 
-<!-- Google Tag Manager -->
-{GTM_ID && (
-  <script define:vars={{ GTM_ID }}>
+{gtm && (
+  <script is:inline define:vars={{ gtm }}>
     (function(w,d,s,l,i) {
       w[l] = w[l] || [];
       w[l].push({
@@ -21,27 +21,6 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
       j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
 
       f.parentNode.insertBefore(j,f);
-    })(window, document, 'script', 'dataLayer', GTM_ID);
+    })(window, document, 'script', 'dataLayer', gtm);
   </script>
-)}
-
-<!-- Google Analytics 4 -->
-{GA4_ID && (
-  <>
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-    ></script>
-
-    <script define:vars={{ GA4_ID }}>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-
-      gtag('js', new Date());
-      gtag('config', GA4_ID);
-    </script>
-  </>
 )}

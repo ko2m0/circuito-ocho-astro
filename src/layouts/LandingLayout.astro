@@ -2,8 +2,9 @@
 import "@/styles/tailwind.css";
 import "@/features/landing-external-marketing/styles/landing.css";
 import SEO from "@/components/SEO.astro";
+import Analytics from "@/components/Analytics.astro";
+import AnalyticsBody from "@/components/AnalyticsBody.astro";
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
 const {
   title,
@@ -33,18 +34,7 @@ const {
   <SEO title={title} description={description} canonical={canonical} lang={lang} />
 
   <!-- GTM (Async, already optimal) -->
-  <script is:inline define:vars={{ GTM_ID }}>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),
-      dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',GTM_ID);
-  </script>
+  <Analytics />
 
   <!-- 🚀 SAFE SCRIPT PLACEMENT: type="module" defers execution until HTML is parsed -->
   <script type="module">
@@ -73,19 +63,9 @@ src="https://www.facebook.com/tr?id=4306819936237879&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-
 </head>
-
 <body>
-  <noscript>
-    <iframe
-      src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
-  </noscript>
-
+    <AnalyticsBody />
   <slot />
 </body>
 </html>
