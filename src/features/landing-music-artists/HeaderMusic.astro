@@ -11,9 +11,12 @@ const whatsappUrl = C8.whatsapp.getUrl(
 
 <header 
   id="main-header" 
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-c8-black/90 backdrop-blur-md border-b border-white/5"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-c8-black/90 backdrop-blur-md border-b border-white/5 overflow-hidden"
 >
-  <div class="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+ <!-- Grain overlay matching Hero treatment -->
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-grain"></div>
+
+  <div class="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between relative z-10">
     
     <!-- Logo (Essential for brand trust) -->
     <a href="/" class="flex items-center gap-2 group">
