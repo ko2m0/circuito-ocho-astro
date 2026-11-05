@@ -1,0 +1,38 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import HeaderMusic from "@/features/landing-music-artists/HeaderMusic.astro";
+import Footer from "@/features/landing-external-marketing/Footer.astro";
+
+import Hero from "@/features/landing-music-artists/Hero.astro";
+import ArtistPaths from "@/features/landing-music-artists/ArtistPaths.astro";
+import Problem from "@/features/landing-music-artists/Problem.astro";
+import Services from "@/features/landing-music-artists/Services.astro";
+import NeonPulseCaseStudy from "@/features/landing-music-artists/NeonPulseCaseStudy.astro";
+import HowWeWork from "@/features/landing-music-artists/HowWeWork.astro";
+import WhyC8 from "@/features/landing-music-artists/WhyC8.astro";
+import FAQ from "@/features/landing-music-artists/FAQ.astro";
+import FinalCTA from "@/features/landing-music-artists/FinalCTA.astro";
+
+import { C8 } from "@/config";
+---
+
+<LandingLayout
+  lang="es"
+  title="Servicios para Músicos y Artistas | Circuito Ocho"
+  description="Marketing digital profesional, desarrollo web y crecimiento estratégico para artistas independientes y bandas."
+  canonical={`${C8.site.url}/services/music-artist-services`}
+>
+  <HeaderMusic lang="es" />
+  <main>
+    <Hero lang="es" />
+    <ArtistPaths lang="es" />
+    <Problem lang="es" />
+    <Services lang="es" />
+    <NeonPulseCaseStudy lang="es" />
+    <HowWeWork lang="es" />
+    <WhyC8 lang="es" />
+    <FAQ lang="es" />
+    <FinalCTA lang="es" />
+  </main>
+  <Footer lang="es" />
+</LandingLayout>

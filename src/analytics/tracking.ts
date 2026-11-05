@@ -69,6 +69,26 @@ function initClickTracking() {
       return;
     }
 
+    
+ // Music Artist Path
+    if (link.dataset.cta === "music_path") {
+      trackEvent("music_path_click", {
+        location: link.dataset.location || "unknown",
+        path_type: link.dataset.pathType || "unknown",
+        label: text,
+      });
+      return;
+    }
+
+    // Neon Pulse Case Study
+    if (link.dataset.cta === "neon_pulse") {
+      trackEvent("neon_pulse_click", {
+        location: link.dataset.location || "unknown",
+        href,
+      });
+      return;
+    }
+
     // Service CTA
     if (link.dataset.cta === "service") {
       trackEvent("service_cta_click", {
@@ -79,6 +99,9 @@ function initClickTracking() {
       });
     }
   });
+
+
+
 }
 
 let trackingInitialized = false;

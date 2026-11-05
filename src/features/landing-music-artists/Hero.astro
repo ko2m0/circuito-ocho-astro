@@ -1,0 +1,79 @@
+---
+import { C8 } from "@/config";
+import { translations, defaultLocale, type Locale } from "@/i18n";
+
+const { lang } = Astro.props;
+const locale: Locale = (lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+const music = t.music;
+const whatsappUrl = C8.whatsapp.getUrl(locale === 'en' ? "Hi, I'm interested in Music & Artist Services." : "Hola, me interesa el servicio de Music & Artist Services.");
+---
+<section class="relative min-h-[98vh] flex items-center justify-center bg-c8-black overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://images.unsplash.com/photo-1459749411177-2a2965bda362?q=80&w=2070&auto=format&fit=crop" 
+      alt="Dramatic live alternative rock performance with stage lighting" 
+      class="w-full h-full object-cover object-center opacity-60"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Gradient Overlays for readability -->
+    <div class="absolute inset-0 bg-gradient-to-t from-c8-black via-c8-black/80 to-c8-deep/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-c8-black/90 via-transparent to-c8-black/90"></div>
+    <!-- Grain Overlay -->
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-grain"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6 lg:px-12 pt-20">
+    <div class="max-w-4xl">
+      <div class="reveal mb-6 flex items-center gap-3">
+        <span class="w-8 h-[1px] bg-c8-green"></span>
+        <span class="text-c8-green font-mono text-xs tracking-[0.2em] uppercase">
+          Music & Artist Services
+        </span>
+      </div>
+      
+      <p class="reveal reveal-delay-1 text-c8-muted italic text-lg md:text-xl mb-4 font-extmkt-display">
+        {music.hero.supporting_eyebrow}
+      </p>
+      
+      <h1 class="reveal reveal-delay-2 font-extmkt-display text-[clamp(3rem,6vw,5.5rem)] leading-[0.95] text-white mb-8 tracking-tight">
+        {music.hero.headline}
+      </h1>
+      
+      <p class="reveal reveal-delay-3 text-lg md:text-xl text-c8-muted leading-relaxed max-w-2xl mb-10 border-l-2 border-c8-green/30 pl-6">
+        {music.hero.copy}
+      </p>
+      
+      <div class="reveal reveal-delay-4 flex flex-col sm:flex-row gap-4">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener"
+          data-cta="consultation"
+          data-location="music_hero"
+          class="group inline-flex items-center justify-center gap-3 bg-c8-green text-c8-black px-8 py-4 text-base font-bold rounded-sm hover:bg-white transition-all duration-300"
+        >
+          {music.hero.cta_primary}
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a
+          href="#services"
+          data-location="music_hero_secondary"
+          class="group inline-flex items-center justify-center gap-3 border border-white/20 text-white px-8 py-4 text-base font-bold rounded-sm hover:border-c8-green hover:text-c8-green transition-all duration-300 backdrop-blur-sm"
+        >
+          {music.hero.cta_secondary}
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 reveal reveal-delay-4">
+    <span class="font-mono text-[10px] text-c8-muted uppercase tracking-widest">Scroll</span>
+    <div class="w-[1px] h-12 bg-gradient-to-b from-c8-green to-transparent"></div>
+  </div>
+</section>

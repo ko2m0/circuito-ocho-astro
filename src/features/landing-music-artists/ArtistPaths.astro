@@ -1,0 +1,76 @@
+---
+import { translations, defaultLocale, type Locale } from "@/i18n";
+
+const { lang } = Astro.props;
+const locale: Locale = (lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+const music = t.music;
+---
+<section class="py-24 md:py-32 bg-extmkt-creamDark relative overflow-hidden">
+  <!-- Subtle technical grid background -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#35FC03 1px, transparent 1px), linear-gradient(90deg, #35FC03 1px, transparent 1px); background-size: 40px 40px;"></div>
+  
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+      
+      <!-- Covers & Function Bands -->
+      <div class="group relative bg-c8-surface border border-white/10 rounded-sm overflow-hidden hover:border-c8-green/40 transition-all duration-500 reveal">
+        <div class="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop" alt="Live band performance in a venue" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-c8-surface via-c8-surface/90 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="font-mono text-c8-green text-xs tracking-widest uppercase border border-c8-green/30 px-2 py-1 rounded-sm">Live Energy</span>
+          </div>
+          <h3 class="font-extmkt-display text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-c8-green transition-colors duration-300">
+            {music.paths.covers_headline}
+          </h3>
+          <p class="text-c8-muted mb-8 leading-relaxed flex-grow">
+            {music.paths.covers_copy}
+          </p>
+          <ul class="space-y-3 mb-8 text-sm text-c8-muted">
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Professional band websites & EPKs</li>
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Gig listings & performance promotion</li>
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Local search visibility & booking ease</li>
+          </ul>
+          <a href="#contact" data-cta="music_path" data-path-type="covers" data-location="paths_covers" class="inline-flex items-center gap-2 text-white font-bold hover:text-c8-green transition-colors mt-auto">
+            {music.paths.covers_cta} 
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Original Artists & Bands -->
+      <div class="group relative bg-c8-surface border border-white/10 rounded-sm overflow-hidden hover:border-c8-green/40 transition-all duration-500 reveal reveal-delay-1">
+        <div class="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1000&auto=format&fit=crop" alt="Musician in a recording studio environment" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-c8-surface via-c8-surface/90 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="font-mono text-c8-green text-xs tracking-widest uppercase border border-c8-green/30 px-2 py-1 rounded-sm">Artist Identity</span>
+          </div>
+          <h3 class="font-extmkt-display text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-c8-green transition-colors duration-300">
+            {music.paths.original_headline}
+          </h3>
+          <p class="text-c8-muted mb-8 leading-relaxed flex-grow">
+            {music.paths.original_copy}
+          </p>
+          <ul class="space-y-3 mb-8 text-sm text-c8-muted">
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Music release campaigns & strategy</li>
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Artist branding & visual identity</li>
+            <li class="flex items-start gap-3"><span class="text-c8-green mt-1">▹</span> Merchandise & direct fan relationships</li>
+          </ul>
+          <a href="#contact" data-cta="music_path" data-path-type="original" data-location="paths_original" class="inline-flex items-center gap-2 text-white font-bold hover:text-c8-green transition-colors mt-auto">
+            {music.paths.original_cta} 
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { translations, defaultLocale, type Locale } from "@/i18n";
+const { lang } = Astro.props;
+const locale: Locale = (lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+const music = t.music;
+const points = [music.why.p1, music.why.p2, music.why.p3, music.why.p4];
+---
+<section class="py-24 md:py-32 bg-c8-black">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal">
+        <span class="font-mono text-c8-green text-xs tracking-widest uppercase mb-4 block">// THE C8 DIFFERENCE</span>
+        <h2 class="font-extmkt-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          {music.why.headline}
+        </h2>
+      </div>
+      <div class="space-y-6">
+        {points.map((point, i) => (
+          <div class="reveal reveal-delay-{i} flex items-start gap-5 p-6 bg-c8-surface border border-white/5 rounded-sm hover:border-c8-green/20 transition-colors duration-300">
+            <span class="text-c8-green text-xl mt-1 flex-shrink-0">✦</span>
+            <p class="text-c8-muted text-lg leading-relaxed">{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

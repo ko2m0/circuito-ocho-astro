@@ -1,0 +1,91 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import HeaderMusic from "@/features/landing-music-artists/HeaderMusic.astro";
+import Footer from "@/features/landing-external-marketing/Footer.astro";
+
+import Hero from "@/features/landing-music-artists/Hero.astro";
+import ArtistPaths from "@/features/landing-music-artists/ArtistPaths.astro";
+import Problem from "@/features/landing-music-artists/Problem.astro";
+import Services from "@/features/landing-music-artists/Services.astro";
+import NeonPulseCaseStudy from "@/features/landing-music-artists/NeonPulseCaseStudy.astro";
+import HowWeWork from "@/features/landing-music-artists/HowWeWork.astro";
+import WhyC8 from "@/features/landing-music-artists/WhyC8.astro";
+import FAQ from "@/features/landing-music-artists/FAQ.astro";
+import FinalCTA from "@/features/landing-music-artists/FinalCTA.astro";
+
+import { C8 } from "@/config";
+---
+
+<LandingLayout
+  lang="en"
+  title="Music & Artist Services | Digital Marketing for Bands | Circuito Ocho"
+  description="Professional digital marketing, web development, and strategic growth for independent artists, covers bands, and music projects in the UK and beyond."
+  canonical={`${C8.site.url}/en/services/music-artist-services`}
+>
+  <HeaderMusic lang="en" />
+  <main>
+    <Hero lang="en" />
+    <ArtistPaths lang="en" />
+    <Problem lang="en" />
+    <Services lang="en" />
+    <NeonPulseCaseStudy lang="en" />
+    <HowWeWork lang="en" />
+    <WhyC8 lang="en" />
+    <FAQ lang="en" />
+    <FinalCTA lang="en" />
+  </main>
+  <Footer lang="en" />
+</LandingLayout>
+
+<script is:inline>
+    (function(){
+          // Mobile Menu with body scroll lock
+            var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var body = document.body;
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var isOpen = mobileMenu.classList.contains('opacity-100');
+                    if (isOpen) {
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                        body.style.overflow = '';
+                    } else {
+                        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                        body.style.overflow = 'hidden';
+                    }
+                });
+
+                var menuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
+                for (var i = 0; i < menuLinks.length; i++) {
+                    menuLinks[i].addEventListener('click', function() {
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                        body.style.overflow = '';
+                    });
+                }
+            }
+
+            // Scroll to Top Button
+            var scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+
+    });
+</script>

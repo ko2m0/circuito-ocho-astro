@@ -1,0 +1,35 @@
+---
+import { translations, defaultLocale, type Locale } from "@/i18n";
+const { lang } = Astro.props;
+const locale: Locale = (lang as Locale) ?? defaultLocale;
+const t = translations[locale];
+const music = t.music;
+const steps = [
+  { num: "01", text: music.process.s1 },
+  { num: "02", text: music.process.s2 },
+  { num: "03", text: music.process.s3 },
+  { num: "04", text: music.process.s4 }
+];
+---
+<section class="py-24 md:py-32 bg-extmkt-creamDark border-t border-white/5">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="max-w-3xl mb-16 reveal">
+      <span class="font-mono text-extmkt-forestDark text-xs tracking-widest uppercase mb-4 block">// METHODOLOGY</span>
+      <h2 class="font-extmkt-display text-3xl md:text-4xl font-bold text-c8-black mb-4 leading-tight">
+        {music.process.headline}
+      </h2>
+      <p class="text-c8-gray text-lg">{music.process.copy}</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step, i) => (
+        <div class="reveal reveal-delay-{i} group p-6 bg-c8-black border border-white/10 rounded-sm hover:border-c8-green/30 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <span class="font-mono text-6xl text-c8-green font-bold">{step.num}</span>
+          </div>
+          <span class="font-mono text-c8-green text-sm mb-4 block relative z-10">PHASE {step.num}</span>
+          <p class="text-white font-medium leading-relaxed relative z-10">{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

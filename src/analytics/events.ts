@@ -6,6 +6,8 @@ export const EVENTS = {
   FORM_SUCCESS: "form_success",
   SERVICE_VIEW: "service_view",
   LANGUAGE_SWITCH: "language_switch",
+  MUSIC_PATH_CLICK: "music_path_click",
+  NEON_PULSE_CLICK: "neon_pulse_click",
 } as const;
 
 export type AnalyticsEvent =
