@@ -8,11 +8,11 @@ const t = translations[locale];
 const music = t.music;
 const whatsappUrl = C8.whatsapp.getUrl(locale === 'en' ? "Hi, I'm interested in Music & Artist Services." : "Hola, me interesa el servicio de Music & Artist Services.");
 ---
-<section class="relative min-h-[98vh] flex items-center justify-center bg-c8-black overflow-hidden">
+<section class="relative min-h-[90vh] flex items-center justify-center bg-c8-black overflow-hidden">
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     <img 
-      src="https://images.unsplash.com/photo-1459749411177-2a2965bda362?q=80&w=2070&auto=format&fit=crop" 
+      src="/img/band4c8ws2.webp" 
       alt="Dramatic live alternative rock performance with stage lighting" 
       class="w-full h-full object-cover object-center opacity-60"
       loading="eager"
@@ -25,7 +25,7 @@ const whatsappUrl = C8.whatsapp.getUrl(locale === 'en' ? "Hi, I'm interested in 
     <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-grain"></div>
   </div>
 
-  <div class="relative z-10 container mx-auto px-6 lg:px-12 pt-20">
+  <div class="relative z-10 container mx-auto px-6 lg:px-12 pt-10 pb-10">
     <div class="max-w-4xl">
       <div class="reveal mb-6 flex items-center gap-3">
         <span class="w-8 h-[1px] bg-c8-green"></span>
@@ -72,7 +72,7 @@ const whatsappUrl = C8.whatsapp.getUrl(locale === 'en' ? "Hi, I'm interested in 
   </div>
   
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 reveal reveal-delay-4">
+  <div class="absolute bottom-1 md-bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 reveal reveal-delay-4">
     <span class="font-mono text-[10px] text-c8-muted uppercase tracking-widest">Scroll</span>
     <div class="w-[1px] h-12 bg-gradient-to-b from-c8-green to-transparent"></div>
   </div>
