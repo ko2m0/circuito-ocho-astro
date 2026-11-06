@@ -39,7 +39,7 @@ export const en = {
       supporting_eyebrow: "Let the music travel further.",
       headline: "Your music deserves more than an Instagram profile.",
       copy: "Build a stronger digital presence, reach the right audiences and create more opportunities around your music. Circuito Ocho brings creative strategy, digital marketing and web development together to help artists move forward.",
-      cta_primary: "Let's talk about your project",
+      cta_primary: "Let's talk about your music",
       cta_secondary: "Explore what we do"
     },
     paths: {

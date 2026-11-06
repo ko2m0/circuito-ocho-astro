@@ -1,0 +1,158 @@
+---
+const { lang = "es" } = Astro.props;
+---
+
+<a 
+  href={`/${lang}/`} 
+  class="group flex items-center gap-3 relative"
+  id="animated-logo"
+  aria-label="Circuito Ocho - Home"
+>
+  <!-- Logo Image -->
+  <img 
+    src="/img/C8_logo0626_F4.png" 
+    alt="" 
+    class="h-8 w-auto brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+    aria-hidden="true"
+  />
+  
+  <!-- Animated Text -->
+  <div class="hidden sm:flex flex-col leading-none">
+    <span 
+      id="logo-text" 
+      class="font-mono text-sm font-bold tracking-wider text-white group-hover:text-c8-green transition-colors duration-300"
+      data-text="CIRCUITO OCHO"
+      aria-label="Circuito Ocho"
+    >CIRCUITO OCHO</span>
+    <span class="font-mono text-[9px] text-c8-muted tracking-[0.3em] uppercase mt-0.5 opacity-70">
+      Neuro-Strategic
+    </span>
+  </div>
+</a>
+
+<script>
+  class TextScramble {
+    private el: HTMLElement;
+    private text: string;
+    private chars: string;
+    private queue: Array<{ from: string; to: string; start: number; end: number }>;
+    private frame: number;
+    private frameRequest: number | null;
+    private resolve: (() => void) | null;
+
+    constructor(el: HTMLElement) {
+      this.el = el;
+      this.text = el.dataset.text || el.textContent || '';
+      this.chars = '!<>-_\\/|[]{}=+*^?#________0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      this.queue = [];
+      this.frame = 0;
+      this.frameRequest = null;
+      this.resolve = null;
+    }
+
+    setText(newText: string): Promise<void> {
+      const oldText = this.el.textContent || '';
+      const length = Math.max(oldText.length, newText.length);
+      
+      return new Promise((resolve) => {
+        this.resolve = resolve;
+        this.queue = [];
+        
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
+          this.queue.push({ from, to, start, end });
+        }
+
+        if (this.frameRequest) {
+          cancelAnimationFrame(this.frameRequest);
+        }
+        
+        this.frame = 0;
+        this.update();
+      });
+    }
+
+    update() {
+      let output = '';
+      let complete = 0;
+
+      for (let i = 0; i < this.queue.length; i++) {
+        const { from, to, start, end } = this.queue[i];
+        let { frame } = this;
+
+        if (frame >= end) {
+          complete++;
+          output += to;
+        } else if (frame >= start) {
+          const charIndex = Math.floor(Math.random() * this.chars.length);
+          output += `<span class="text-c8-green/70">${this.chars[charIndex]}</span>`;
+        } else {
+          output += from;
+        }
+      }
+
+      this.el.innerHTML = output;
+
+      if (complete === this.queue.length) {
+        if (this.resolve) this.resolve();
+      } else {
+        this.frame++;
+        this.frameRequest = requestAnimationFrame(() => this.update());
+      }
+    }
+  }
+
+  // Initialize animation
+  const logoText = document.getElementById('logo-text') as HTMLElement | null;
+  const animatedLogo = document.getElementById('animated-logo');
+  
+  if (logoText && animatedLogo) {
+    const scramble = new TextScramble(logoText);
+    const originalText = logoText.dataset.text || 'CIRCUITO OCHO';
+    
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion) {
+      // Initial decode on page load (after a short delay)
+      setTimeout(() => {
+        scramble.setText(originalText);
+      }, 300);
+      
+      // Trigger on hover
+      let isHovering = false;
+      let hoverTimeout: number | null = null;
+      
+      animatedLogo.addEventListener('mouseenter', () => {
+        if (isHovering) return;
+        isHovering = true;
+        
+        // Clear any pending timeout
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+        
+        scramble.setText(originalText);
+      });
+      
+      animatedLogo.addEventListener('mouseleave', () => {
+        isHovering = false;
+        // Debounce rapid hovers
+        hoverTimeout = window.setTimeout(() => {
+          hoverTimeout = null;
+        }, 500);
+      });
+      
+      // Subtle periodic re-decode every 12 seconds to keep it "alive"
+      setInterval(() => {
+        if (!isHovering) {
+          scramble.setText(originalText);
+        }
+      }, 12000);
+    }
+  }
+</script>
